@@ -78,7 +78,14 @@ function displayPaginationControls() {
     };
     paginationDiv.appendChild(prevButton);
   }
-  for (let i = 1; i <= totalPages; i++) {
+  const maxButtons = 3;
+  let startPage = Math.max(1, currentPage - 1);
+  let endPage = startPage + maxButtons - 1;
+  if (endPage > totalPages) {
+    endPage = totalPages;
+    startPage = Math.max(1, endPage - maxButtons + 1);
+  }
+  for (let i = startPage; i <= endPage; i++) {
     const pageButton = document.createElement('button');
     pageButton.textContent = i;
     if (i === currentPage) {
