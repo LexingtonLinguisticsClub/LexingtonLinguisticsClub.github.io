@@ -169,6 +169,12 @@ footer {
 .pagination button:hover {
     background-color: #371a6d;
 }
+.pagination button.active {
+  background-color: #555;
+  color: #fff;
+  font-weight: bold;
+}
+
 
 /* Search Input */
 #search-input {
