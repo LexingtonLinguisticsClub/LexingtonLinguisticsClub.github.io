@@ -1,4 +1,1354 @@
 [
+  {
+    "date": "2025-06-23",
+    "question": "What is 'negative transfer' in second language acquisition?",
+    "answer": "It's when first-language rules interfere with learning or using a second language."
+  },
+  {
+    "date": "2025-06-22",
+    "question": "What is an alveolar consonant?",
+    "answer": "A consonant articulated with the tongue near the alveolar ridge (behind the upper teeth)."
+  },
+  {
+    "date": "2025-06-21",
+    "question": "What is a 'dummy subject' in syntax?",
+    "answer": "A subject that carries no semantic meaning, like 'it' in 'It is raining.'"
+  },
+  {
+    "date": "2025-06-20",
+    "question": "Which field examines how multilingual speakers select which language to use in a given context?",
+    "answer": "Language choice studies within sociolinguistics."
+  },
+  {
+    "date": "2025-06-19",
+    "question": "What is a 'classifier' in a language?",
+    "answer": "A morpheme or word used to categorize nouns (common in East Asian languages)."
+  },
+  {
+    "date": "2025-06-18",
+    "question": "What term describes the process of children spontaneously creating a new language form among themselves?",
+    "answer": "Nicaraguan Sign Language is a famous example of this 'emergent language' phenomenon."
+  },
+  {
+    "date": "2025-06-17",
+    "question": "What does 'glottalization' refer to in phonetics?",
+    "answer": "The use of a glottal stop or constriction of the glottis in producing a sound."
+  },
+  {
+    "date": "2025-06-16",
+    "question": "Which concept in pragmatics involves indirect suggestions or implications beyond literal meaning?",
+    "answer": "Conversational implicature."
+  },
+  {
+    "date": "2025-06-15",
+    "question": "What is the difference between a 'langue' and a 'parole' in structural linguistics?",
+    "answer": "'Langue' is the abstract system of language; 'parole' is actual speech use."
+  },
+  {
+    "date": "2025-06-14",
+    "question": "Which area of linguistics examines how language is organized and interpreted during reading?",
+    "answer": "Reading processes in psycholinguistics."
+  },
+  {
+    "date": "2025-06-13",
+    "question": "What is an 'etymological fallacy' in language studies?",
+    "answer": "Believing a word's current meaning must match its original or historical meaning."
+  },
+  {
+    "date": "2025-06-12",
+    "question": "What is an 'agglutinative language'?",
+    "answer": "A language where words often include many morphemes strung together, each with a distinct function."
+  },
+  {
+    "date": "2025-06-11",
+    "question": "What does 'phrase structure grammar' study?",
+    "answer": "How constituents (phrases) combine hierarchically to form sentences."
+  },
+  {
+    "date": "2025-06-10",
+    "question": "What is the difference between 'diachronic' and 'synchronic' language study?",
+    "answer": "Diachronic examines language evolution over time; synchronic examines language at a specific point."
+  },
+  {
+    "date": "2025-06-09",
+    "question": "Which term describes a string of speech that can serve as a complete grammatical unit but lacks typical intonational closure?",
+    "answer": "An utterance fragment or incomplete utterance."
+  },
+  {
+    "date": "2025-06-08",
+    "question": "What is 'schwa' in phonetics?",
+    "answer": "The mid-central vowel sound often found in unstressed syllables (represented by ə)."
+  },
+  {
+    "date": "2025-06-07",
+    "question": "Which morphological process involves changing a vowel sound to mark grammatical contrasts (e.g., sing–sang–sung)?",
+    "answer": "Ablaut."
+  },
+  {
+    "date": "2025-06-06",
+    "question": "What is 'semantic prosody'?",
+    "answer": "A subtle connotation that a word or phrase develops through repeated collocations."
+  },
+  {
+    "date": "2025-06-05",
+    "question": "Which field studies the technical structure and design of writing systems?",
+    "answer": "Graphemics."
+  },
+  {
+    "date": "2025-06-04",
+    "question": "What is a 'directional' in sign languages?",
+    "answer": "A verb sign whose movement indicates subject and object roles."
+  },
+  {
+    "date": "2025-06-03",
+    "question": "What is 'reduplication' in linguistics?",
+    "answer": "Repeating a word or syllable to create a new form or meaning (e.g., 'bye-bye')."
+  },
+  {
+    "date": "2025-06-02",
+    "question": "What is the 'Monitor Model' in second language acquisition theory?",
+    "answer": "Krashen's theory that conscious learning edits or monitors output from acquired language."
+  },
+  {
+    "date": "2025-06-01",
+    "question": "Which term describes language policies promoting multiple languages within a nation or region?",
+    "answer": "Official multilingualism."
+  },
+  {
+    "date": "2025-05-31",
+    "question": "In lexicography, what is the 'headword'?",
+    "answer": "The primary word or lemma under which dictionary entries are listed."
+  },
+  {
+    "date": "2025-05-30",
+    "question": "What is 'coarticulation' in phonetics?",
+    "answer": "When speech sounds overlap due to the articulators transitioning smoothly between sounds."
+  },
+  {
+    "date": "2025-05-29",
+    "question": "Which subfield explores how listeners identify and process linguistic information from acoustic signals?",
+    "answer": "Speech perception studies."
+  },
+  {
+    "date": "2025-05-28",
+    "question": "What is 'negative concord' in grammar?",
+    "answer": "Using more than one negative element to express a single negation (e.g., 'I didn’t see nobody')."
+  },
+  {
+    "date": "2025-05-27",
+    "question": "What is a 'nominative–accusative' alignment system?",
+    "answer": "A system marking subjects of transitive and intransitive verbs the same (nominative) and direct objects differently (accusative)."
+  },
+  {
+    "date": "2025-05-26",
+    "question": "Which phenomenon describes changing pitch levels to convey grammatical meaning (e.g., tone languages)?",
+    "answer": "Tone marking."
+  },
+  {
+    "date": "2025-05-25",
+    "question": "What is 'semantic drift'?",
+    "answer": "Gradual shifting of a word's meaning over time."
+  },
+  {
+    "date": "2025-05-24",
+    "question": "Which concept refers to the way language can encode relationships of ownership or possession?",
+    "answer": "Possessive construction."
+  },
+  {
+    "date": "2025-05-23",
+    "question": "What is a 'clitic' in linguistics?",
+    "answer": "A morpheme that attaches to a word but maintains a syntactic independence (e.g., 'I'm', 'they're')."
+  },
+  {
+    "date": "2025-05-22",
+    "question": "Which area studies the neurological underpinnings of language disorders?",
+    "answer": "Clinical neurolinguistics."
+  },
+  {
+    "date": "2025-05-21",
+    "question": "What is 'infixation'?",
+    "answer": "Inserting a morpheme within another morpheme or word (e.g., Tagalog ‘um’ insertion)."
+  },
+  {
+    "date": "2025-05-20",
+    "question": "Which linguistic concept explains how certain languages have separate grammatical forms for inclusive and exclusive 'we'?",
+    "answer": "Clusivity distinction."
+  },
+  {
+    "date": "2025-05-19",
+    "question": "What is the 'Politeness Principle' in pragmatics?",
+    "answer": "Guidelines people follow to be polite and maintain social harmony in conversation."
+  },
+  {
+    "date": "2025-05-18",
+    "question": "Which subfield of linguistics focuses on building and using corpora for language analysis?",
+    "answer": "Corpus linguistics."
+  },
+  {
+    "date": "2025-05-17",
+    "question": "What does 'vocal fry' refer to in phonetics?",
+    "answer": "A voice register characterized by a low, creaky vibration."
+  },
+  {
+    "date": "2025-05-16",
+    "question": "Which field explores the interplay between language and gender roles in society?",
+    "answer": "Language and gender studies."
+  },
+  {
+    "date": "2025-05-15",
+    "question": "What is 'r-dropping' in dialectology?",
+    "answer": "Not pronouncing the /r/ sound after vowels (common in some British and East Coast American dialects)."
+  },
+  {
+    "date": "2025-05-14",
+    "question": "Which morphological process changes the entire word stem to indicate tense or aspect (e.g., go → went)?",
+    "answer": "Suppletion."
+  },
+  {
+    "date": "2025-05-13",
+    "question": "What is 'silent articulation'?",
+    "answer": "Mouthing or shaping speech sounds without vocalizing (like silent singing)."
+  },
+  {
+    "date": "2025-05-12",
+    "question": "Which approach to syntax attempts to map innate principles shaping sentence structure across languages?",
+    "answer": "Generative grammar."
+  },
+  {
+    "date": "2025-05-11",
+    "question": "What is the concept of 'metathesis' in phonological change?",
+    "answer": "The rearranging of sounds in a word (e.g., 'ask' /æsk/ becoming /æks/)."
+  },
+  {
+    "date": "2025-05-10",
+    "question": "Which term refers to language registers used exclusively online (e.g., texting abbreviations)?",
+    "answer": "Netspeak or cyberlanguage."
+  },
+  {
+    "date": "2025-05-09",
+    "question": "What is 'pharyngealization' in phonetics?",
+    "answer": "A secondary articulation involving constriction of the pharynx during speech production."
+  },
+  {
+    "date": "2025-05-08",
+    "question": "Which field studies how physical gestures accompany speech?",
+    "answer": "Gesture studies within multimodal linguistics."
+  },
+  {
+    "date": "2025-05-07",
+    "question": "What is an 'expletive infixation'?",
+    "answer": "Inserting a profanity or another word for emphasis (e.g., fan-bloody-tastic)."
+  },
+  {
+    "date": "2025-05-06",
+    "question": "Which term refers to a dialect that’s disappearing as younger speakers adopt different features?",
+    "answer": "Receding dialect."
+  },
+  {
+    "date": "2025-05-05",
+    "question": "What is the 'covert prestige' of a dialect?",
+    "answer": "A non-standard dialect's status within a particular social group, often associated with solidarity."
+  },
+  {
+    "date": "2025-05-04",
+    "question": "Which field focuses on the study of linguistic landscapes (public signage, billboards, etc.)?",
+    "answer": "Linguistic landscape studies."
+  },
+  {
+    "date": "2025-05-03",
+    "question": "What is the phenomenon called when a vowel sound is produced more centrally than normal?",
+    "answer": "Vowel reduction."
+  },
+  {
+    "date": "2025-05-02",
+    "question": "Which term describes a translational phenomenon where word-for-word rendering leads to awkward phrasing?",
+    "answer": "Literal translation or calque error."
+  },
+  {
+    "date": "2025-05-01",
+    "question": "What is the difference between 'creaky voice' and 'breathy voice'?",
+    "answer": "Creaky voice has low-frequency vibration; breathy voice adds audible air flow."
+  },
+  {
+    "date": "2025-04-30",
+    "question": "Which concept examines how a speaker’s identity and group membership influence their speech patterns?",
+    "answer": "Ethnolinguistic identity."
+  },
+  {
+    "date": "2025-04-29",
+    "question": "What is a 'demonstrative' in grammar?",
+    "answer": "A word (like 'this,' 'that') that indicates which entity is being referred to."
+  },
+  {
+    "date": "2025-04-28",
+    "question": "Which branch of phonetics studies how humans perceive speech sounds?",
+    "answer": "Auditory phonetics."
+  },
+  {
+    "date": "2025-04-27",
+    "question": "What is 'trill' in phonetics?",
+    "answer": "A consonant produced by vibrations between the active and passive articulators (like rolling 'r')."
+  },
+  {
+    "date": "2025-04-26",
+    "question": "Which linguistic term describes when a sentence has more than one possible structure or meaning?",
+    "answer": "Syntactic or semantic ambiguity."
+  },
+  {
+    "date": "2025-04-25",
+    "question": "What is 'allophony'?",
+    "answer": "Variation in how a phoneme is realized, depending on context, without changing meaning."
+  },
+  {
+    "date": "2025-04-24",
+    "question": "Which approach to grammar focuses on how speakers use language in real-time communication?",
+    "answer": "Usage-based grammar."
+  },
+  {
+    "date": "2025-04-23",
+    "question": "What does 'Wh-movement' refer to in syntax?",
+    "answer": "The process where interrogative words (who, what, etc.) move to the start of a sentence."
+  },
+  {
+    "date": "2025-04-22",
+    "question": "Which process describes reversing the usual word order, often for rhetorical effect?",
+    "answer": "Inversion."
+  },
+  {
+    "date": "2025-04-21",
+    "question": "What is the 'dominance approach' in language and gender research?",
+    "answer": "The theory that men’s and women’s language differences stem from power imbalances."
+  },
+  {
+    "date": "2025-04-20",
+    "question": "Which phenomenon occurs when bilingual children mix elements from two languages in one sentence?",
+    "answer": "Code-mixing."
+  },
+  {
+    "date": "2025-04-19",
+    "question": "What does 'morphophonemics' study?",
+    "answer": "How morphological and phonological processes interact (e.g., plural endings changing voicing)."
+  },
+  {
+    "date": "2025-04-18",
+    "question": "Which subfield of linguistics deals with how language use is shaped by social context at the discourse level?",
+    "answer": "Interactional sociolinguistics."
+  },
+  {
+    "date": "2025-04-17",
+    "question": "What is an 'idiosyncratic dialect'?",
+    "answer": "A highly individualized speech variety used by a specific speaker."
+  },
+  {
+    "date": "2025-04-16",
+    "question": "Which concept in morphology deals with classes like nouns, verbs, adjectives, and adverbs?",
+    "answer": "Word classes or parts of speech."
+  },
+  {
+    "date": "2025-04-15",
+    "question": "What is a 'vocative' case used for?",
+    "answer": "Addressing or calling upon someone or something directly."
+  },
+  {
+    "date": "2025-04-14",
+    "question": "Which phenomenon describes the use of fewer distinct vowel sounds in rapid or casual speech?",
+    "answer": "Vowel centralization."
+  },
+  {
+    "date": "2025-04-13",
+    "question": "What is 'retroflexion'?",
+    "answer": "Curling the tongue back to produce certain consonants."
+  },
+  {
+    "date": "2025-04-12",
+    "question": "Which concept refers to a single word or phrase performing multiple syntactic functions at once?",
+    "answer": "Syntactic pivot."
+  },
+  {
+    "date": "2025-04-11",
+    "question": "What is 'unergative vs. unaccusative' in syntax?",
+    "answer": "A distinction among intransitive verbs based on whether the subject is an agent or a patient."
+  },
+  {
+    "date": "2025-04-10",
+    "question": "Which linguistic feature involves lengthening or shortening vowel duration to distinguish words?",
+    "answer": "Quantitative vowel distinction."
+  },
+  {
+    "date": "2025-04-09",
+    "question": "What is 'velarization' in phonetics?",
+    "answer": "A secondary articulation with the tongue raised toward the soft palate (e.g., 'dark L')."
+  },
+  {
+    "date": "2025-04-08",
+    "question": "Which concept in semantics deals with the basic, core meaning of a word, free of context?",
+    "answer": "Denotation."
+  },
+  {
+    "date": "2025-04-07",
+    "question": "What is 'sentence stress'?",
+    "answer": "The emphasis placed on one or more words within a sentence to highlight information."
+  },
+  {
+    "date": "2025-04-06",
+    "question": "Which phenomenon describes using multiple negative markers to emphasize negation (like 'I ain’t never going')?",
+    "answer": "Multiple negation (related to negative concord)."
+  },
+  {
+    "date": "2025-04-05",
+    "question": "What is 'velum' in phonetics?",
+    "answer": "The soft palate, which can open or close the nasal passage during speech."
+  },
+  {
+    "date": "2025-04-04",
+    "question": "Which term refers to languages that do not use morphological case marking for subjects or objects?",
+    "answer": "Analytic or isolating languages."
+  },
+  {
+    "date": "2025-04-03",
+    "question": "What is 'rhoticity'?",
+    "answer": "Whether and how the consonant /r/ is pronounced in a language or dialect."
+  },
+  {
+    "date": "2025-04-02",
+    "question": "Which linguistic concept argues that all languages share an underlying universal structure?",
+    "answer": "Universal Grammar."
+  },
+  {
+    "date": "2025-04-01",
+    "question": "What is 'substitution error' in child language acquisition?",
+    "answer": "Replacing one sound with another, such as saying 'wabbit' for 'rabbit.'"
+  },
+  {
+    "date": "2025-03-31",
+    "question": "Which grammatical mood is used to express counterfactual or hypothetical statements?",
+    "answer": "Subjunctive or conditional, depending on the language."
+  },
+  {
+    "date": "2025-03-30",
+    "question": "What does 'lexicalization' mean?",
+    "answer": "When a concept or phrase becomes a single word in a language’s lexicon."
+  },
+  {
+    "date": "2025-03-29",
+    "question": "Which field studies the development and usage of specialized vocabulary in professions?",
+    "answer": "LSP (Language for Specific Purposes)."
+  },
+  {
+    "date": "2025-03-28",
+    "question": "What is 'definite article reduction'?",
+    "answer": "Shortening or omitting the definite article in certain dialects (e.g., “t’” for ‘the’)."
+  },
+  {
+    "date": "2025-03-27",
+    "question": "Which term refers to alternating word-initial consonants as a grammatical feature (as in Celtic languages)?",
+    "answer": "Initial consonant mutation."
+  },
+  {
+    "date": "2025-03-26",
+    "question": "What is 'deictic expression'?",
+    "answer": "A word or phrase whose meaning depends on context (like 'here,' 'there,' 'now')."
+  },
+  {
+    "date": "2025-03-25",
+    "question": "Which concept in discourse analysis deals with how text elements create coherence and unity?",
+    "answer": "Textual cohesion."
+  },
+  {
+    "date": "2025-03-24",
+    "question": "What is 'accommodation' in sociolinguistics?",
+    "answer": "Adjusting speech style to match or differ from your conversational partner."
+  },
+  {
+    "date": "2025-03-23",
+    "question": "Which morphological category signals the speaker’s attitude about the statement (e.g., 'evidentiality')?",
+    "answer": "Evidential markers."
+  },
+  {
+    "date": "2025-03-22",
+    "question": "What is a 'measure word' or 'counter word'?",
+    "answer": "A word that pairs with nouns to indicate units or quantities (common in Chinese, Japanese)."
+  },
+  {
+    "date": "2025-03-21",
+    "question": "Which phenomenon describes how new words integrate into a language's phonological system?",
+    "answer": "Phonological nativization."
+  },
+  {
+    "date": "2025-03-20",
+    "question": "What is a 'false friend' in language learning?",
+    "answer": "A word that looks similar in two languages but has a different meaning in each."
+  },
+  {
+    "date": "2025-03-19",
+    "question": "Which field examines how language interacts with spatial orientation (like 'north', 'south')?",
+    "answer": "Linguistic relativity studies with regard to spatial references."
+  },
+  {
+    "date": "2025-03-18",
+    "question": "What is 'heteroglossia' in sociolinguistics?",
+    "answer": "The diversity of voices, styles, or varieties within a single text or language context."
+  },
+  {
+    "date": "2025-03-17",
+    "question": "Which type of verb requires not just a direct object but also an additional argument (e.g., 'put something somewhere')?",
+    "answer": "Ditransitive verb."
+  },
+  {
+    "date": "2025-03-16",
+    "question": "What is the 'anecdotal method' in child language research?",
+    "answer": "Collecting observational language data from a single child, often the researcher’s own."
+  },
+  {
+    "date": "2025-03-15",
+    "question": "Which system classifies language structures into typological categories (e.g., SVO, SOV)?",
+    "answer": "Language typology."
+  },
+  {
+    "date": "2025-03-14",
+    "question": "What is 'parataxis' in syntax?",
+    "answer": "Placing clauses or phrases one after another without connecting words or subordinations."
+  },
+  {
+    "date": "2025-03-13",
+    "question": "Which field uses computational tools to automatically parse the syntax of sentences?",
+    "answer": "Natural Language Processing (NLP)."
+  },
+  {
+    "date": "2025-03-12",
+    "question": "What is 'syntactic reanalysis'?",
+    "answer": "A historical process where speakers reinterpret a sentence’s structure, changing the grammar."
+  },
+  {
+    "date": "2025-03-11",
+    "question": "Which concept focuses on how speakers understand implied meanings, like politeness or sarcasm?",
+    "answer": "Pragmatic inference."
+  },
+  {
+    "date": "2025-03-10",
+    "question": "What is a 'split ergative' system?",
+    "answer": "A language alignment that sometimes follows ergative patterns and sometimes nominative–accusative."
+  },
+  {
+    "date": "2025-03-09",
+    "question": "Which phenomenon involves dropping sounds from within a word (like ‘cam-ra’ instead of ‘camera’)?",
+    "answer": "Syncope."
+  },
+  {
+    "date": "2025-03-08",
+    "question": "What is 'language taboos'?",
+    "answer": "Words or topics considered inappropriate or offensive in certain contexts."
+  },
+  {
+    "date": "2025-03-07",
+    "question": "Which concept in semantics indicates the set of possible referents for a word (its scope of meaning)?",
+    "answer": "Referential range."
+  },
+  {
+    "date": "2025-03-06",
+    "question": "What is 'language revitalization'?",
+    "answer": "Efforts to revive or strengthen use of endangered or extinct languages."
+  },
+  {
+    "date": "2025-03-05",
+    "question": "Which principle states that the simplest possible interpretation is usually chosen by listeners?",
+    "answer": "The principle of parsimony in language processing."
+  },
+  {
+    "date": "2025-03-04",
+    "question": "What is the 'Western dialect continuum' in Romance languages?",
+    "answer": "A chain of dialects from Portugal to Northern Italy where neighboring varieties are mutually intelligible."
+  },
+  {
+    "date": "2025-03-03",
+    "question": "Which phenomenon in child language acquisition involves applying a grammar rule too broadly (e.g., 'goed' instead of 'went')?",
+    "answer": "Overgeneralization."
+  },
+  {
+    "date": "2025-03-02",
+    "question": "What is 'voicing assimilation'?",
+    "answer": "When a consonant changes its voicing feature based on a neighboring sound."
+  },
+  {
+    "date": "2025-03-01",
+    "question": "Which approach examines everyday communication as social action, focusing on turn-taking and repairs?",
+    "answer": "Conversation analysis."
+  },
+  {
+    "date": "2025-02-28",
+    "question": "What does 'double articulation' mean in language structure?",
+    "answer": "Language is organized at two levels: meaningful units (morphemes) built from distinct sounds (phonemes)."
+  },
+  {
+    "date": "2025-02-27",
+    "question": "Which concept in language acquisition involves mapping new words onto meanings rapidly?",
+    "answer": "Fast mapping."
+  },
+  {
+    "date": "2025-02-26",
+    "question": "What is a 'closed syllable'?",
+    "answer": "A syllable ending in a consonant, not a vowel (e.g., 'cat')."
+  },
+  {
+    "date": "2025-02-25",
+    "question": "Which term refers to the 'lesser used' languages within a bilingual or multilingual community?",
+    "answer": "Minority language."
+  },
+  {
+    "date": "2025-02-24",
+    "question": "What is 'anthroponymy'?",
+    "answer": "The study of personal names and their origins."
+  },
+  {
+    "date": "2025-02-23",
+    "question": "Which concept refers to the earliest known form of a language in historical linguistics?",
+    "answer": "Proto-language."
+  },
+  {
+    "date": "2025-02-22",
+    "question": "What is 'back-formation'?",
+    "answer": "Creating a new word by removing an affix from an existing word (e.g., 'edit' from 'editor')."
+  },
+  {
+    "date": "2025-02-21",
+    "question": "Which concept describes two languages used by the same speakers in different contexts or domains?",
+    "answer": "Diglossia."
+  },
+  {
+    "date": "2025-02-20",
+    "question": "What does 'archaism' refer to?",
+    "answer": "A word or expression no longer in common usage but still used for effect or in special contexts."
+  },
+  {
+    "date": "2025-02-19",
+    "question": "Which process describes strengthening or adding emphasis to a consonant sound over time?",
+    "answer": "Fortition."
+  },
+  {
+    "date": "2025-02-18",
+    "question": "What is a 'vocative marker' in languages that have it?",
+    "answer": "A morphological marker used when directly addressing someone (e.g., Slavic 'Boże' from 'Bóg' for 'God')."
+  },
+  {
+    "date": "2025-02-17",
+    "question": "Which principle in pragmatics suggests speakers are cooperative and provide enough information, truthfully and clearly?",
+    "answer": "Grice’s Cooperative Principle."
+  },
+  {
+    "date": "2025-02-16",
+    "question": "What is 'code meshing'?",
+    "answer": "The blending of different dialects or languages in the same text or speech, rather than strictly separating them."
+  },
+  {
+    "date": "2025-02-15",
+    "question": "Which concept in phonology deals with adjacent sounds becoming more alike?",
+    "answer": "Assimilation (place, manner, or voicing)."
+  },
+  {
+    "date": "2025-02-14",
+    "question": "What is 'degemination'?",
+    "answer": "The process of simplifying a geminate (double) consonant to a single consonant."
+  },
+  {
+    "date": "2025-02-13",
+    "question": "Which area studies invented sign systems for hearing communities, such as baseball hand signals?",
+    "answer": "Gesture-based communication research."
+  },
+  {
+    "date": "2025-02-12",
+    "question": "What is 'spread glottis' in phonetics?",
+    "answer": "An articulatory setting where the vocal cords are parted more widely than in a typical voiceless sound (e.g., aspirated sounds)."
+  },
+  {
+    "date": "2025-02-11",
+    "question": "Which phenomenon describes child learners applying grammatical rules to all words without exception at first?",
+    "answer": "Morphological overgeneralization."
+  },
+  {
+    "date": "2025-02-10",
+    "question": "What is 'linguistic determinism'?",
+    "answer": "The idea that language strictly determines thought (a strong version of the Sapir–Whorf hypothesis)."
+  },
+  {
+    "date": "2025-02-09",
+    "question": "Which concept deals with how individuals use language to create and uphold social roles?",
+    "answer": "Language and identity construction."
+  },
+  {
+    "date": "2025-02-08",
+    "question": "What does 'non-configurational' mean in syntax?",
+    "answer": "A language type where word order is extremely free and grammatical roles are marked by inflection."
+  },
+  {
+    "date": "2025-02-07",
+    "question": "Which approach to grammar focuses on how rules are formed from repeated usage patterns?",
+    "answer": "Construction Grammar."
+  },
+  {
+    "date": "2025-02-06",
+    "question": "What is 'vowel harmony'?",
+    "answer": "A phonological process where vowels in a word agree in one or more features."
+  },
+  {
+    "date": "2025-02-05",
+    "question": "Which field examines how language shapes one’s worldview but does not strictly determine it?",
+    "answer": "Linguistic relativity studies."
+  },
+  {
+    "date": "2025-02-04",
+    "question": "What is 'light verb construction'?",
+    "answer": "Using a semantically weak verb with a noun (e.g., 'take a walk')."
+  },
+  {
+    "date": "2025-02-03",
+    "question": "Which type of morphological process replaces one root with another to indicate tense, aspect, or other distinctions?",
+    "answer": "Replacement (a form of suppletion)."
+  },
+  {
+    "date": "2025-02-02",
+    "question": "What is 'nasalization' in phonetics?",
+    "answer": "Allowing air to pass through the nose during a vowel or consonant sound."
+  },
+  {
+    "date": "2025-02-01",
+    "question": "Which subfield of linguistics deals with collecting and analyzing large databases of real-world text or speech?",
+    "answer": "Corpus linguistics."
+  },
+  {
+    "date": "2025-01-31",
+    "question": "What is 'anaphora' in syntax and discourse?",
+    "answer": "The use of expressions (like pronouns) that depend on another expression for their reference."
+  },
+  {
+    "date": "2025-01-30",
+    "question": "Which linguistic feature refers to pronouns or verbs that change form to reflect the speaker’s respect toward the listener?",
+    "answer": "Honorifics."
+  },
+  {
+    "date": "2025-01-29",
+    "question": "What is 'semantic narrowing'?",
+    "answer": "When a word’s meaning becomes more specialized over time."
+  },
+  {
+    "date": "2025-01-28",
+    "question": "Which concept involves analyzing how speech is used to achieve specific effects, such as persuading or commanding?",
+    "answer": "Speech act theory."
+  },
+  {
+    "date": "2025-01-27",
+    "question": "What is 'palatalization'?",
+    "answer": "A phonetic change where a consonant’s place of articulation moves closer to the hard palate."
+  },
+  {
+    "date": "2025-01-26",
+    "question": "Which discipline investigates how language ideologies influence educational practices and policies?",
+    "answer": "Language policy and planning."
+  },
+  {
+    "date": "2025-01-25",
+    "question": "What is an 'absolutive' case in ergative languages?",
+    "answer": "A case marking for the subject of intransitive verbs and the object of transitive verbs."
+  },
+  {
+    "date": "2025-01-24",
+    "question": "Which concept describes words borrowed from multiple languages to form a hybrid expression?",
+    "answer": "Hybrid loanword or mixed etymology."
+  },
+  {
+    "date": "2025-01-23",
+    "question": "What is a 'contronym'?",
+    "answer": "A word that can function as its own opposite (e.g., 'oversight' can mean 'error' or 'supervision')."
+  },
+  {
+    "date": "2025-01-22",
+    "question": "Which field studies how gendered language forms (like grammatical gender) shape cognition?",
+    "answer": "Gender and language cognition research."
+  },
+  {
+    "date": "2025-01-21",
+    "question": "What is 'internal reconstruction' in historical linguistics?",
+    "answer": "Inferring earlier language states by examining irregularities within a single language."
+  },
+  {
+    "date": "2025-01-20",
+    "question": "Which concept suggests that children are biologically prepared to acquire language, given minimal input?",
+    "answer": "Innateness hypothesis."
+  },
+  {
+    "date": "2025-01-19",
+    "question": "What is a 'cover term'?",
+    "answer": "A term that collectively refers to multiple related items or concepts."
+  },
+  {
+    "date": "2025-01-18",
+    "question": "Which process involves 'linking R' or 'intrusive R' in certain dialects of English?",
+    "answer": "Inserting or retaining an /r/ sound between vowels (like 'idea(r) of')."
+  },
+  {
+    "date": "2025-01-17",
+    "question": "What is 'archiphoneme'?",
+    "answer": "A theoretical phoneme that captures the features common to multiple distinct phonemes in certain contexts."
+  },
+  {
+    "date": "2025-01-16",
+    "question": "Which concept in generative syntax posits that each phrase has a head, complement, and specifier?",
+    "answer": "X-bar theory."
+  },
+  {
+    "date": "2025-01-15",
+    "question": "What is 'semantic shift'?",
+    "answer": "A change in a word’s meaning, often from concrete to abstract, or vice versa."
+  },
+  {
+    "date": "2025-01-14",
+    "question": "Which linguistic term describes the distinct intonation patterns used to convey differences in emotion or intention?",
+    "answer": "Intonational contours."
+  },
+  {
+    "date": "2025-01-13",
+    "question": "What is 'language socialization'?",
+    "answer": "How individuals acquire language skills and cultural norms through interaction in their community."
+  },
+  {
+    "date": "2025-01-12",
+    "question": "Which phenomenon describes adding an extra consonant or vowel for ease of pronunciation (e.g., 'ath-e-lete')?",
+    "answer": "Epenthesis."
+  },
+  {
+    "date": "2025-01-11",
+    "question": "What is 'hypocorism'?",
+    "answer": "A pet name or affectionate form of a name (e.g., 'Liz' for 'Elizabeth')."
+  },
+  {
+    "date": "2025-01-10",
+    "question": "Which field examines the written representations of language, including punctuation and orthography?",
+    "answer": "Graphology or orthography studies."
+  },
+  {
+    "date": "2025-01-09",
+    "question": "What is 'coda deletion' in phonology?",
+    "answer": "Dropping final consonants from syllables, common in casual speech or certain dialects."
+  },
+  {
+    "date": "2025-01-08",
+    "question": "Which concept addresses how certain languages mark respect or familiarity (T/V distinction) in second-person pronouns?",
+    "answer": "T/V distinction (tu/vous, tú/usted, etc.)."
+  },
+  {
+    "date": "2025-01-07",
+    "question": "What is 'idiolectal variation'?",
+    "answer": "Differences in language use unique to an individual speaker’s personal style."
+  },
+  {
+    "date": "2025-01-06",
+    "question": "Which phenomenon describes the creation of new lexical items from brand names, like 'to google'?",
+    "answer": "Eponymous verb formation or genericization."
+  },
+  {
+    "date": "2025-01-05",
+    "question": "What is the difference between 'back-channeling' and 'turn-taking'?",
+    "answer": "Back-channeling is giving listener feedback (e.g., “uh-huh”); turn-taking is managing speaking roles."
+  },
+  {
+    "date": "2025-01-04",
+    "question": "Which linguistic concept explains how context determines the interpretation of pronouns or elided elements?",
+    "answer": "Anaphoric reference."
+  },
+  {
+    "date": "2025-01-03",
+    "question": "What is 'partial reduplication'?",
+    "answer": "Repeating only part of a word to change meaning or grammatical function."
+  },
+  {
+    "date": "2025-01-02",
+    "question": "Which approach looks at how children construct grammar from input through pattern finding and analogy?",
+    "answer": "Usage-based acquisition theory."
+  },
+  {
+    "date": "2025-01-01",
+    "question": "What is 'auditory feedback' in speech production?",
+    "answer": "Monitoring one’s own speech via hearing to adjust articulation in real time."
+  },
+  {
+    "date": "2024-12-31",
+    "question": "Which concept in morphology deals with forms that occur only in certain contexts (like 'went' for 'go')?",
+    "answer": "Suppletion."
+  },
+  {
+    "date": "2024-12-30",
+    "question": "What is 'neutralization' in phonology?",
+    "answer": "When two phonemes are indistinguishable in a particular phonetic context."
+  },
+  {
+    "date": "2024-12-29",
+    "question": "Which principle in conversation suggests speakers should avoid ambiguity?",
+    "answer": "Grice’s Maxim of Manner."
+  },
+  {
+    "date": "2024-12-28",
+    "question": "What is 'semantic bleaching'?",
+    "answer": "Loss or reduction of a word’s original meaning (e.g., 'very' losing its force of 'true')."
+  },
+  {
+    "date": "2024-12-27",
+    "question": "Which concept describes language used to convey social relationships rather than information (small talk)?",
+    "answer": "Phatic communication."
+  },
+  {
+    "date": "2024-12-26",
+    "question": "What is 'synesthesia' in semantic extension?",
+    "answer": "Describing one sensory experience with terms from another sense (e.g., 'loud color')."
+  },
+  {
+    "date": "2024-12-25",
+    "question": "Which phenomenon in bilingualism involves using words from two languages within a single sentence?",
+    "answer": "Code-mixing."
+  },
+  {
+    "date": "2024-12-24",
+    "question": "What is 'mora timing'?",
+    "answer": "A rhythmic timing system based on units (morae), common in Japanese."
+  },
+  {
+    "date": "2024-12-23",
+    "question": "Which field studies the statistical properties of languages, such as word frequencies?",
+    "answer": "Quantitative linguistics."
+  },
+  {
+    "date": "2024-12-22",
+    "question": "What is 'deixis'?",
+    "answer": "Words or phrases that require contextual information (time, place, person) for interpretation."
+  },
+  {
+    "date": "2024-12-21",
+    "question": "Which sociolinguistic concept suggests that certain language features carry covert or overt prestige?",
+    "answer": "Prestige dialect theory."
+  },
+  {
+    "date": "2024-12-20",
+    "question": "What is 'negative polarity item' in syntax?",
+    "answer": "A word or phrase only used in negative contexts or questions (e.g., 'any' in English)."
+  },
+  {
+    "date": "2024-12-19",
+    "question": "Which phenomenon involves the weakening of a consonant's articulation over time?",
+    "answer": "Lenition."
+  },
+  {
+    "date": "2024-12-18",
+    "question": "What is 'deontic modality'?",
+    "answer": "Expresses necessity, obligation, or permission (e.g., 'must,' 'may')."
+  },
+  {
+    "date": "2024-12-17",
+    "question": "Which concept involves preparing dictionaries, style guides, and prescriptive rules for a language?",
+    "answer": "Language standardization."
+  },
+  {
+    "date": "2024-12-16",
+    "question": "What is 'semantic compositionality'?",
+    "answer": "Meaning of a phrase derives from the meanings of its parts and their syntactic combination."
+  },
+  {
+    "date": "2024-12-15",
+    "question": "Which term describes a language form used primarily in formal settings and not for daily interaction?",
+    "answer": "High variety in a diglossic situation."
+  },
+  {
+    "date": "2024-12-14",
+    "question": "What is 'rhyme' in phonology?",
+    "answer": "Repetition of final sounds in lines of poetry or phrases for effect."
+  },
+  {
+    "date": "2024-12-13",
+    "question": "Which concept suggests that certain grammatical structures appear universally at similar stages in L1 acquisition?",
+    "answer": "Order of acquisition or developmental sequence."
+  },
+  {
+    "date": "2024-12-12",
+    "question": "What is a 'geminate consonant'?",
+    "answer": "A doubled or long consonant sound (e.g., Italian ‘tt’ in 'settimana')."
+  },
+  {
+    "date": "2024-12-11",
+    "question": "Which concept describes a morphological process forming a new word by combining two free morphemes (e.g., 'rainbow')?",
+    "answer": "Compounding."
+  },
+  {
+    "date": "2024-12-10",
+    "question": "What is 'suprasegmental' in phonetics?",
+    "answer": "Features like stress, tone, and intonation that go beyond individual sounds."
+  },
+  {
+    "date": "2024-12-09",
+    "question": "Which concept involves a language that is intentionally created for fictional worlds (e.g., Dothraki)?",
+    "answer": "Artlang (artistic constructed language)."
+  },
+  {
+    "date": "2024-12-08",
+    "question": "What is 'shift of register'?",
+    "answer": "Changing speech style according to social context (formal to informal, etc.)."
+  },
+  {
+    "date": "2024-12-07",
+    "question": "Which discipline studies the variations and changes in a word’s usage over time through corpora?",
+    "answer": "Diachronic corpus linguistics."
+  },
+  {
+    "date": "2024-12-06",
+    "question": "What is 'sibilant' in phonetics?",
+    "answer": "A fricative sound with a hissing quality (e.g., 's,' 'z')."
+  },
+  {
+    "date": "2024-12-05",
+    "question": "Which type of pronoun changes form depending on whether it appears in the subject, object, or other grammatical positions?",
+    "answer": "Declining pronoun or case-marked pronoun."
+  },
+  {
+    "date": "2024-12-04",
+    "question": "What does 'intrusive schwa' refer to?",
+    "answer": "An inserted schwa sound between consonants in casual speech, e.g., 'ath(e)lete.'"
+  },
+  {
+    "date": "2024-12-03",
+    "question": "Which theory in second language acquisition emphasizes the role of input that is comprehensible but slightly challenging?",
+    "answer": "Krashen’s Input Hypothesis."
+  },
+  {
+    "date": "2024-12-02",
+    "question": "What is 'AAVE' in North American sociolinguistics?",
+    "answer": "African American Vernacular English, a dialect with distinct grammatical and phonological features."
+  },
+  {
+    "date": "2024-12-01",
+    "question": "Which concept in historical linguistics deals with the substitution of one sound by another in all contexts over time?",
+    "answer": "Regular sound change."
+  },
+  {
+    "date": "2024-11-30",
+    "question": "What is 'backchanneling'?",
+    "answer": "Listener responses like 'mm-hmm' or 'yeah' that provide feedback without taking the conversational floor."
+  },
+  {
+    "date": "2024-11-29",
+    "question": "Which linguistic approach considers language as a system of signs where the value of each sign depends on its relation to others?",
+    "answer": "Structuralism (Saussurean view)."
+  },
+  {
+    "date": "2024-11-28",
+    "question": "What is 'polysemy'?",
+    "answer": "A single word having multiple related meanings (e.g., 'foot' of a person vs. foot of a mountain)."
+  },
+  {
+    "date": "2024-11-27",
+    "question": "Which field studies how computers process, understand, and generate human language?",
+    "answer": "Natural Language Processing (NLP)."
+  },
+  {
+    "date": "2024-11-26",
+    "question": "What is 'nonce word'?",
+    "answer": "A word created for a single occasion or situation, not commonly used otherwise."
+  },
+  {
+    "date": "2024-11-25",
+    "question": "Which notion in morphology deals with the idea that certain bound morphemes only attach to specific stems?",
+    "answer": "Morphotactic constraints."
+  },
+  {
+    "date": "2024-11-24",
+    "question": "What is 'praat' commonly used for?",
+    "answer": "A software tool for acoustic phonetic analysis."
+  },
+  {
+    "date": "2024-11-23",
+    "question": "Which concept focuses on the study of 'natural semantic metalanguage' for universal human concepts?",
+    "answer": "Anna Wierzbicka’s NSM approach."
+  },
+  {
+    "date": "2024-11-22",
+    "question": "What is 'labiodental nasal'?",
+    "answer": "A nasal consonant articulated with the lower lip and upper teeth (IPA [ɱ])."
+  },
+  {
+    "date": "2024-11-21",
+    "question": "Which approach claims that language universals are shaped by usage and processing constraints, not purely innate grammar?",
+    "answer": "Functional-typological approach."
+  },
+  {
+    "date": "2024-11-20",
+    "question": "What is an 'ergative verb' in English usage (rare but recognized)?",
+    "answer": "A verb that can be used transitively or intransitively with the same subject/object roles (e.g., 'The door opened/I opened the door')."
+  },
+  {
+    "date": "2024-11-19",
+    "question": "Which linguistic phenomenon involves the usage of melodic or rhythmic devices to create emphasis in speech?",
+    "answer": "Prosodic emphasis."
+  },
+  {
+    "date": "2024-11-18",
+    "question": "What is 'construct state' in Semitic languages?",
+    "answer": "A noun form used before another noun to show possession or close association."
+  },
+  {
+    "date": "2024-11-17",
+    "question": "Which concept in lexical semantics deals with the relationship of inclusion, as in 'rose' is a type of 'flower'?",
+    "answer": "Hyponymy."
+  },
+  {
+    "date": "2024-11-16",
+    "question": "What is 'periphrastic construction'?",
+    "answer": "Expressing grammatical meaning through multiple words instead of inflection, e.g., 'will eat' vs. 'ate'."
+  },
+  {
+    "date": "2024-11-15",
+    "question": "Which subfield examines how morphological marking can encode politeness or formality (e.g., honorific suffixes)?",
+    "answer": "Morphopragmatics."
+  },
+  {
+    "date": "2024-11-14",
+    "question": "What is 'epenthetic vowel'?",
+    "answer": "A vowel inserted to break up a difficult consonant cluster."
+  },
+  {
+    "date": "2024-11-13",
+    "question": "Which concept relates to the use of specific intonation patterns to manage conversation flow (like 'rising for floor-holding')?",
+    "answer": "Interactional prosody."
+  },
+  {
+    "date": "2024-11-12",
+    "question": "What is 'lexical gap'?",
+    "answer": "A concept for which no single word exists in a language, though it may exist in others."
+  },
+  {
+    "date": "2024-11-11",
+    "question": "Which concept explains that some languages separate grammatical gender into animate vs. inanimate instead of masculine/feminine?",
+    "answer": "Animacy-based gender system."
+  },
+  {
+    "date": "2024-11-10",
+    "question": "What is 'tonal downstep'?",
+    "answer": "A lowering of pitch level after certain tone sequences in tone languages."
+  },
+  {
+    "date": "2024-11-09",
+    "question": "Which term refers to a phoneme's allophones that appear in free variation (both forms acceptable in the same context)?",
+    "answer": "Free variation."
+  },
+  {
+    "date": "2024-11-08",
+    "question": "What is 'argot'?",
+    "answer": "A secret or specialized vocabulary used by a particular group, often to exclude outsiders."
+  },
+  {
+    "date": "2024-11-07",
+    "question": "Which phenomenon occurs when a single morphological marker indicates multiple grammatical categories (e.g., number and case)?",
+    "answer": "Cumulative expression."
+  },
+  {
+    "date": "2024-11-06",
+    "question": "What is 'nucleus' in a syllable?",
+    "answer": "The central part of a syllable, typically a vowel or syllabic consonant."
+  },
+  {
+    "date": "2024-11-05",
+    "question": "Which subfield investigates how language influences and is influenced by technological mediums (e.g., texting, social media)?",
+    "answer": "Computer-mediated communication (CMC) linguistics."
+  },
+  {
+    "date": "2024-11-04",
+    "question": "What is 'declarative sentence'?",
+    "answer": "A sentence that states a fact or opinion, typically subject–verb order in English."
+  },
+  {
+    "date": "2024-11-03",
+    "question": "Which concept in morphological theory addresses the predictable relationships between words of the same family (e.g., dance, dancer)?",
+    "answer": "Paradigm structure."
+  },
+  {
+    "date": "2024-11-02",
+    "question": "What is 'broad transcription' in phonetics?",
+    "answer": "A phonemic transcription capturing only distinctive contrasts, not precise phonetic detail."
+  },
+  {
+    "date": "2024-11-01",
+    "question": "Which phenomenon refers to a shift in vowel pronunciation over time, such as the Great Vowel Shift in English?",
+    "answer": "Vowel shift."
+  },
+  {
+    "date": "2024-10-31",
+    "question": "What is 'functional load' in phonology?",
+    "answer": "The importance of a phoneme’s contrast in distinguishing words in a language."
+  },
+  {
+    "date": "2024-10-30",
+    "question": "Which concept describes a conlang designed specifically for real-world communication (e.g., Esperanto)?",
+    "answer": "Auxlang (auxiliary constructed language)."
+  },
+  {
+    "date": "2024-10-29",
+    "question": "What is 'inverse copula' in syntax?",
+    "answer": "A structure where the subject complement precedes the copula or influences subject positioning."
+  },
+  {
+    "date": "2024-10-28",
+    "question": "Which concept describes utterances where grammar is simplified, often used with non-native speakers or young children?",
+    "answer": "Foreigner talk or child-directed speech (CDS)."
+  },
+  {
+    "date": "2024-10-27",
+    "question": "What is 'phonotactic constraint'?",
+    "answer": "Rules that govern permissible sequences of sounds in a language."
+  },
+  {
+    "date": "2024-10-26",
+    "question": "Which field studies the interface between language and the mind, focusing on how we process syntactic structures?",
+    "answer": "Psycholinguistics."
+  },
+  {
+    "date": "2024-10-25",
+    "question": "What is 'alveo-palatal' in phonetics?",
+    "answer": "A place of articulation between the alveolar ridge and the hard palate."
+  },
+  {
+    "date": "2024-10-24",
+    "question": "Which concept refers to a blending of local dialect with a standard form, creating an intermediate variety?",
+    "answer": "Koineization."
+  },
+  {
+    "date": "2024-10-23",
+    "question": "What is 'homorganic consonant cluster'?",
+    "answer": "A cluster of consonants produced at the same place of articulation (e.g., 'mp')."
+  },
+  {
+    "date": "2024-10-22",
+    "question": "Which approach in syntax posits that all phrases share a common underlying structure, identified via transformations?",
+    "answer": "Transformational-generative grammar."
+  },
+  {
+    "date": "2024-10-21",
+    "question": "What is 'semantic gradient'?",
+    "answer": "A set of related words placed along a continuum of meaning or intensity."
+  },
+  {
+    "date": "2024-10-20",
+    "question": "Which concept in lexicology deals with the differences between near-synonyms (e.g., 'big' vs. 'large')?",
+    "answer": "Differential semantics."
+  },
+  {
+    "date": "2024-10-19",
+    "question": "What is 'tracing technique' in historical linguistics?",
+    "answer": "Following a loanword’s path through multiple languages or dialects over time."
+  },
+  {
+    "date": "2024-10-18",
+    "question": "Which concept refers to special sets of vocabulary used in ritual or ceremonial contexts?",
+    "answer": "Ritual register or ceremonial language."
+  },
+  {
+    "date": "2024-10-17",
+    "question": "What is 'constative utterance' vs. 'performative utterance'?",
+    "answer": "Constatives describe something true or false; performatives perform an action (e.g., 'I apologize')."
+  },
+  {
+    "date": "2024-10-16",
+    "question": "Which linguistic process shortens a word by dropping its beginning (e.g., 'phone' from 'telephone')?",
+    "answer": "Apheresis."
+  },
+  {
+    "date": "2024-10-15",
+    "question": "What is 'neutral term' in language usage?",
+    "answer": "A non-loaded term that avoids bias, stigma, or strong emotion."
+  },
+  {
+    "date": "2024-10-14",
+    "question": "Which phenomenon in sign languages involves modifying the location or movement to show who does what to whom?",
+    "answer": "Directional agreement."
+  },
+  {
+    "date": "2024-10-13",
+    "question": "What is 'unmarked form' in morphology?",
+    "answer": "The default or least specified form of a word (e.g., singular noun in English)."
+  },
+  {
+    "date": "2024-10-12",
+    "question": "Which concept involves analyzing how conversation participants correct themselves or each other when errors occur?",
+    "answer": "Repair mechanisms in conversation."
+  },
+  {
+    "date": "2024-10-11",
+    "question": "What is 'heavy NP shift'?",
+    "answer": "Moving a long noun phrase to the end of a clause (e.g., 'I gave to Mary the heavy box of books')."
+  },
+  {
+    "date": "2024-10-10",
+    "question": "Which term describes a verb that cannot take a direct object (e.g., 'to sleep')?",
+    "answer": "Intransitive verb."
+  },
+  {
+    "date": "2024-10-09",
+    "question": "What is 'clipping' in word formation?",
+    "answer": "Shortening a longer word (e.g., 'info' from 'information')."
+  },
+  {
+    "date": "2024-10-08",
+    "question": "Which phenomenon occurs when a language borrows grammatical structures rather than just vocabulary?",
+    "answer": "Structural borrowing."
+  },
+  {
+    "date": "2024-10-07",
+    "question": "What is 'embodied semantics'?",
+    "answer": "The theory that understanding language partly involves mental simulations grounded in sensory and motor systems."
+  },
+  {
+    "date": "2024-10-06",
+    "question": "Which field examines the phenomenon of 'talking to oneself' and its cognitive or social functions?",
+    "answer": "Private speech studies in psycholinguistics."
+  },
+  {
+    "date": "2024-10-05",
+    "question": "What is 'referential cohesion' in discourse analysis?",
+    "answer": "Using pronouns or definite nouns to link back to previously mentioned entities."
+  },
+  {
+    "date": "2024-10-04",
+    "question": "Which concept explains how a single form can signal multiple grammatical categories at once?",
+    "answer": "Fusional morphology."
+  },
+  {
+    "date": "2024-10-03",
+    "question": "What is 'topic-prominent' language structure?",
+    "answer": "A syntax prioritizing the topic of a sentence over the subject (common in East Asian languages)."
+  },
+  {
+    "date": "2024-10-02",
+    "question": "Which term describes the smallest prosodic unit into which connected speech is divided?",
+    "answer": "Intonation unit or tone unit."
+  },
+  {
+    "date": "2024-10-01",
+    "question": "What is 'language crossing'?",
+    "answer": "Adopting linguistic features of a group one isn't typically associated with."
+  },
+  {
+    "date": "2024-09-30",
+    "question": "Which concept involves speaking in a simplified way to accommodate or converge with a listener's perceived level?",
+    "answer": "Speech accommodation theory."
+  },
+  {
+    "date": "2024-09-29",
+    "question": "What is 'harmonic convergence' in phonology?",
+    "answer": "Multiple vowels in a word adjusting to share similar features (related to vowel harmony)."
+  },
+  {
+    "date": "2024-09-28",
+    "question": "Which concept involves embedded narratives or dialogue within a conversation?",
+    "answer": "Reported speech or embedded discourse."
+  },
+  {
+    "date": "2024-09-27",
+    "question": "What is 'onymy' in onomastics?",
+    "answer": "Study of naming systems, including proper names, place names, etc."
+  },
     {
         "date": "2024-09-26",
         "question": "What is the term for a language that develops from the mixing of parent languages and has features of both?",
