@@ -26,34 +26,34 @@ function displayQuestions(filteredData) {
   if (!container) return;
   container.innerHTML = '';
   const dataToDisplay = filteredData || questionsData.slice((currentPage - 1) * questionsPerPage, currentPage * questionsPerPage);
-  dataToDisplay.forEach(question => {
-    const card = document.createElement('div');
-    card.className = 'question-card';
-    const date = document.createElement('h3');
-    date.textContent = 'Date: ' + question.date;
-    const text = document.createElement('p');
-    text.textContent = question.question;
-    card.appendChild(date);
-    card.appendChild(text);
-    if (question.answer) {
-      const ans = document.createElement('p');
-      ans.innerHTML = '<strong>Answer:</strong> ' + question.answer;
-      ans.style.display = 'none';
-      const btn = document.createElement('button');
-      btn.textContent = 'Show Answer';
-      btn.onclick = () => {
-        if (ans.style.display === 'none') {
-          ans.style.display = 'block';
-          btn.textContent = 'Hide Answer';
+  dataToDisplay.forEach(q => {
+    const c = document.createElement('div');
+    c.className = 'question-card';
+    const d = document.createElement('h3');
+    d.textContent = 'Date: ' + q.date;
+    const t = document.createElement('p');
+    t.textContent = q.question;
+    c.appendChild(d);
+    c.appendChild(t);
+    if (q.answer) {
+      const a = document.createElement('p');
+      a.innerHTML = '<strong>Answer:</strong> ' + q.answer;
+      a.style.display = 'none';
+      const b = document.createElement('button');
+      b.textContent = 'Show Answer';
+      b.onclick = () => {
+        if (a.style.display === 'none') {
+          a.style.display = 'block';
+          b.textContent = 'Hide Answer';
         } else {
-          ans.style.display = 'none';
-          btn.textContent = 'Show Answer';
+          a.style.display = 'none';
+          b.textContent = 'Show Answer';
         }
       };
-      card.appendChild(btn);
-      card.appendChild(ans);
+      c.appendChild(b);
+      c.appendChild(a);
     }
-    container.appendChild(card);
+    container.appendChild(c);
   });
   if (!filteredData) {
     displayPaginationControls();
@@ -75,31 +75,50 @@ function displayPaginationControls() {
     };
     div.appendChild(prev);
   }
-  const pages = [];
-  pages.push(1);
   let start = currentPage - 1;
   let end = currentPage + 1;
   if (start < 2) start = 2;
   if (end > totalPages - 1) end = totalPages - 1;
+  const first = document.createElement('button');
+  first.textContent = '1';
+  if (currentPage === 1) first.classList.add('active');
+  first.onclick = () => {
+    currentPage = 1;
+    displayQuestions();
+  };
+  div.appendChild(first);
+  if (start > 2) {
+    const dots = document.createElement('span');
+    dots.textContent = '...';
+    dots.className = 'dots';
+    div.appendChild(dots);
+  }
   for (let i = start; i <= end; i++) {
-    pages.push(i);
-  }
-  if (totalPages > 1) {
-    pages.push(totalPages);
-  }
-  const unique = [...new Set(pages)];
-  unique.forEach(num => {
     const btn = document.createElement('button');
-    btn.textContent = num;
-    if (num === currentPage) {
-      btn.classList.add('active');
-    }
+    btn.textContent = i;
+    if (i === currentPage) btn.classList.add('active');
     btn.onclick = () => {
-      currentPage = num;
+      currentPage = i;
       displayQuestions();
     };
     div.appendChild(btn);
-  });
+  }
+  if (end < totalPages - 1) {
+    const dots = document.createElement('span');
+    dots.textContent = '...';
+    dots.className = 'dots';
+    div.appendChild(dots);
+  }
+  if (totalPages > 1) {
+    const last = document.createElement('button');
+    last.textContent = totalPages;
+    if (currentPage === totalPages) last.classList.add('active');
+    last.onclick = () => {
+      currentPage = totalPages;
+      displayQuestions();
+    };
+    div.appendChild(last);
+  }
   if (currentPage < totalPages) {
     const next = document.createElement('button');
     next.textContent = 'Next';
