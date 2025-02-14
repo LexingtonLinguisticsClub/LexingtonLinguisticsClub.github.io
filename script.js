@@ -27,36 +27,33 @@ function displayQuestions(filteredData) {
   container.innerHTML = '';
   const dataToDisplay = filteredData || questionsData.slice((currentPage - 1) * questionsPerPage, currentPage * questionsPerPage);
   dataToDisplay.forEach(question => {
-    const questionCard = document.createElement('div');
-    questionCard.className = 'question-card';
+    const card = document.createElement('div');
+    card.className = 'question-card';
     const date = document.createElement('h3');
-    date.textContent = `Date: ${question.date}`;
-    const questionText = document.createElement('p');
-    questionText.textContent = question.question;
+    date.textContent = 'Date: ' + question.date;
+    const text = document.createElement('p');
+    text.textContent = question.question;
+    card.appendChild(date);
+    card.appendChild(text);
     if (question.answer) {
-      const answerText = document.createElement('p');
-      answerText.innerHTML = `<strong>Answer:</strong> ${question.answer}`;
-      answerText.style.display = 'none';
-      const toggleButton = document.createElement('button');
-      toggleButton.textContent = 'Show Answer';
-      toggleButton.onclick = () => {
-        if (answerText.style.display === 'none') {
-          answerText.style.display = 'block';
-          toggleButton.textContent = 'Hide Answer';
+      const ans = document.createElement('p');
+      ans.innerHTML = '<strong>Answer:</strong> ' + question.answer;
+      ans.style.display = 'none';
+      const btn = document.createElement('button');
+      btn.textContent = 'Show Answer';
+      btn.onclick = () => {
+        if (ans.style.display === 'none') {
+          ans.style.display = 'block';
+          btn.textContent = 'Hide Answer';
         } else {
-          answerText.style.display = 'none';
-          toggleButton.textContent = 'Show Answer';
+          ans.style.display = 'none';
+          btn.textContent = 'Show Answer';
         }
       };
-      questionCard.appendChild(date);
-      questionCard.appendChild(questionText);
-      questionCard.appendChild(toggleButton);
-      questionCard.appendChild(answerText);
-    } else {
-      questionCard.appendChild(date);
-      questionCard.appendChild(questionText);
+      card.appendChild(btn);
+      card.appendChild(ans);
     }
-    container.appendChild(questionCard);
+    container.appendChild(card);
   });
   if (!filteredData) {
     displayPaginationControls();
@@ -67,52 +64,58 @@ function displayPaginationControls() {
   const container = document.getElementById('questions-container');
   if (!container) return;
   const totalPages = Math.ceil(questionsData.length / questionsPerPage);
-  const paginationDiv = document.createElement('div');
-  paginationDiv.className = 'pagination';
+  const div = document.createElement('div');
+  div.className = 'pagination';
   if (currentPage > 1) {
-    const prevButton = document.createElement('button');
-    prevButton.textContent = 'Previous';
-    prevButton.onclick = () => {
+    const prev = document.createElement('button');
+    prev.textContent = 'Previous';
+    prev.onclick = () => {
       currentPage--;
       displayQuestions();
     };
-    paginationDiv.appendChild(prevButton);
+    div.appendChild(prev);
   }
-  const maxButtons = 3;
-  let startPage = Math.max(1, currentPage - 1);
-  let endPage = startPage + maxButtons - 1;
-  if (endPage > totalPages) {
-    endPage = totalPages;
-    startPage = Math.max(1, endPage - maxButtons + 1);
+  const pages = [];
+  pages.push(1);
+  let start = currentPage - 1;
+  let end = currentPage + 1;
+  if (start < 2) start = 2;
+  if (end > totalPages - 1) end = totalPages - 1;
+  for (let i = start; i <= end; i++) {
+    pages.push(i);
   }
-  for (let i = startPage; i <= endPage; i++) {
-    const pageButton = document.createElement('button');
-    pageButton.textContent = i;
-    if (i === currentPage) {
-      pageButton.classList.add('active');
+  if (totalPages > 1) {
+    pages.push(totalPages);
+  }
+  const unique = [...new Set(pages)];
+  unique.forEach(num => {
+    const btn = document.createElement('button');
+    btn.textContent = num;
+    if (num === currentPage) {
+      btn.classList.add('active');
     }
-    pageButton.onclick = () => {
-      currentPage = i;
+    btn.onclick = () => {
+      currentPage = num;
       displayQuestions();
     };
-    paginationDiv.appendChild(pageButton);
-  }
+    div.appendChild(btn);
+  });
   if (currentPage < totalPages) {
-    const nextButton = document.createElement('button');
-    nextButton.textContent = 'Next';
-    nextButton.onclick = () => {
+    const next = document.createElement('button');
+    next.textContent = 'Next';
+    next.onclick = () => {
       currentPage++;
       displayQuestions();
     };
-    paginationDiv.appendChild(nextButton);
+    div.appendChild(next);
   }
-  container.appendChild(paginationDiv);
+  container.appendChild(div);
 }
 
 function searchQuestions() {
-  const query = document.getElementById('search-input').value.toLowerCase();
-  const filteredQuestions = questionsData.filter(question => question.question.toLowerCase().includes(query));
-  displayQuestions(filteredQuestions);
+  const q = document.getElementById('search-input').value.toLowerCase();
+  const filtered = questionsData.filter(x => x.question.toLowerCase().includes(q));
+  displayQuestions(filtered);
 }
 
 window.onload = function() {
