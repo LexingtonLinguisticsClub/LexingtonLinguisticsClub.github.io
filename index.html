@@ -4,628 +4,103 @@
     <meta charset="UTF-8">
     <title>Lexington Linguistics Club</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ===== CSS  ===== -->
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #0F172A;
-            --primary-light: #334155;
-            --primary-dark: #020617;
-            --accent: #10B981;
-            --accent-light: #34D399;
-            --accent-warm: #F59E0B;
-            --text-dark: #1E293B;
-            --text-light: #64748B;
-            --bg-light: #F8FAFC;
-            --bg-gradient: linear-gradient(135deg, #0F172A 0%, #334155 50%, #10B981 100%);
-            --shadow: 0 4px 20px rgba(15, 23, 42, 0.1);
-            --shadow-hover: 0 8px 40px rgba(15, 23, 42, 0.2);
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            overflow-x: hidden;
-        }
-
-        /* Animated Background */
-        .animated-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: linear-gradient(-45deg, #0F172A, #334155, #475569, #10B981);
-            background-size: 400% 400%;
-            animation: gradientShift 20s ease infinite;
-        }
-
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* Floating Letters Animation */
-        .floating-letters {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .letter {
-            position: absolute;
-            font-size: 18px;
-            color: rgba(16, 185, 129, 0.15);
-            animation: float 25s infinite linear;
-            font-weight: 500;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(100vh) rotate(0deg); }
-            100% { transform: translateY(-100px) rotate(360deg); }
-        }
-
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(248, 250, 252, 0.85);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(16, 185, 129, 0.1);
-            box-shadow: var(--shadow);
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .logo-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--bg-gradient);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 24px;
-            font-weight: bold;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        .logo h1 {
-            color: var(--primary);
-            font-size: 1.8rem;
-            font-weight: 700;
-            background: var(--bg-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .logo p {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            margin-top: -5px;
-        }
-
-        nav {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        nav a {
-            color: var(--text-dark);
-            text-decoration: none;
-            font-weight: 500;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        nav a::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: var(--bg-gradient);
-            transition: left 0.3s ease;
-            z-index: -1;
-        }
-
-        nav a:hover::before {
-            left: 0;
-        }
-
-        nav a:hover {
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            padding: 5px;
-        }
-
-        .menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background: var(--primary);
-            margin: 3px 0;
-            transition: 0.3s;
-        }
-
-        /* Main Content */
-        main {
-            margin-top: 100px;
-            min-height: calc(100vh - 100px);
-            background: rgba(248, 250, 252, 0.8);
-            backdrop-filter: blur(10px);
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 80vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 2rem;
-            position: relative;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            animation: fadeInUp 1s ease;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            background: var(--bg-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: textGlow 4s ease-in-out infinite alternate;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-        }
-
-        @keyframes textGlow {
-            from { filter: drop-shadow(0 0 20px rgba(16, 185, 129, 0.3)); }
-            to { filter: drop-shadow(0 0 30px rgba(15, 23, 42, 0.5)); }
-        }
-
-        .hero p {
-            font-size: 1.5rem;
-            color: var(--text-light);
-            margin-bottom: 2rem;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: var(--bg-gradient);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .cta-button:hover::before {
-            left: 100%;
-        }
-
-        /* Content Sections */
-        .content-section {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: var(--primary);
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: var(--bg-gradient);
-            border-radius: 2px;
-        }
-
-        /* Cards */
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 2.5rem;
-            border-radius: 16px;
-            box-shadow: var(--shadow);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(16, 185, 129, 0.08);
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--accent), var(--accent-warm));
-        }
-
-        .card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: var(--shadow-hover);
-            border-color: rgba(16, 185, 129, 0.2);
-        }
-
-        .card-icon {
-            width: 56px;
-            height: 56px;
-            background: linear-gradient(135deg, var(--accent), var(--accent-light));
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            font-size: 22px;
-            color: white;
-            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
-        }
-
-        .card h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .card p {
-            color: var(--text-light);
-            line-height: 1.6;
-        }
-
-        /* Team Section */
-        .team-member {
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-            text-align: center;
-            transition: all 0.3s ease;
-            max-width: 400px;
-            margin: 0 auto;
-        }
-
-        .team-member:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .member-avatar {
-            width: 120px;
-            height: 120px;
-            background: var(--bg-gradient);
-            border-radius: 50%;
-            margin: 0 auto 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 48px;
-            color: white;
-            font-weight: bold;
-        }
-
-        .member-name {
-            font-size: 1.5rem;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .member-title {
-            color: var(--accent);
-            font-weight: 500;
-            margin-bottom: 1rem;
-        }
-
-        .member-info {
-            color: var(--text-light);
-            line-height: 1.6;
-        }
-
-        /* Questions Page Styles */
-        .search-container {
-            max-width: 600px;
-            margin: 0 auto 3rem;
-            position: relative;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 1rem 1rem 1rem 3rem;
-            border: 2px solid rgba(102, 126, 234, 0.2);
-            border-radius: 50px;
-            font-size: 1rem;
-            background: white;
-            transition: all 0.3s ease;
-        }
-
-        .search-input:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 20px rgba(102, 126, 234, 0.2);
-        }
-
-        .search-icon {
-            position: absolute;
-            left: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-light);
-        }
-
-        .question-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-            margin-bottom: 2rem;
-            transition: all 0.3s ease;
-            border-left: 5px solid var(--primary);
-        }
-
-        .question-card:hover {
-            transform: translateX(10px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .question-date {
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .question-text {
-            font-size: 1.1rem;
-            color: var(--text-dark);
-            margin-bottom: 1rem;
-            line-height: 1.6;
-        }
-
-        .answer-toggle {
-            background: var(--bg-gradient);
-            color: white;
-            border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .answer-toggle:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
-        }
-
-        .answer-text {
-            margin-top: 1rem;
-            padding: 1rem;
-            background: var(--bg-light);
-            border-radius: 10px;
-            display: none;
-            animation: slideDown 0.3s ease;
-        }
-
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Pagination */
-        .pagination {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 3rem;
-        }
-
-        .pagination button {
-            padding: 0.8rem 1.2rem;
-            border: none;
-            background: white;
-            color: var(--primary);
-            border-radius: 10px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow);
-        }
-
-        .pagination button:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        .pagination button.active {
-            background: var(--bg-gradient);
-            color: white;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--primary-dark);
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .header-content {
-                padding: 1rem;
-            }
-
-            nav {
-                display: none;
-                position: absolute;
-                top: 100%;
-                right: 0;
-                background: white;
-                flex-direction: column;
-                box-shadow: var(--shadow);
-                border-radius: 10px;
-                min-width: 200px;
-            }
-
-            nav.active {
-                display: flex;
-            }
-
-            .menu-toggle {
-                display: flex;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1.2rem;
-            }
-
-            .content-section {
-                padding: 2rem 1rem;
-            }
-
-            .cards-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Page-specific styles */
-        .page-hero {
-            min-height: 40vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .page-hero h1 {
-            font-size: 3rem;
-            background: var(--bg-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+        *{margin:0;padding:0;box-sizing:border-box;}
+        :root{
+            --primary:#0F172A;--primary-light:#334155;--primary-dark:#020617;
+            --accent:#10B981;--accent-light:#34D399;--accent-warm:#F59E0B;
+            --text-dark:#1E293B;--text-light:#64748B;--bg-light:#F8FAFC;
+            --bg-gradient:linear-gradient(135deg,#0F172A 0%,#334155 50%,#10B981 100%);
+            --shadow:0 4px 20px rgba(15,23,42,.1);--shadow-hover:0 8px 40px rgba(15,23,42,.2);
+        }
+        body{font-family:'Segoe UI',Tahoma,Verdana,sans-serif;line-height:1.6;color:var(--text-dark);overflow-x:hidden;}
+        .animated-bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;
+            background:linear-gradient(-45deg,#0F172A,#334155,#475569,#10B981);
+            background-size:400% 400%;animation:gradientShift 20s ease infinite;}
+        @keyframes gradientShift{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}
+        .floating-letters{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:-1;}
+        .letter{position:absolute;font-size:18px;color:rgba(16,185,129,.15);animation:float 25s linear infinite;font-weight:500;}
+        @keyframes float{0%{transform:translateY(100vh) rotate(0)}100%{transform:translateY(-100px) rotate(360deg)}}
+        header{position:fixed;top:0;width:100%;background:rgba(248,250,252,.85);backdrop-filter:blur(12px);
+            border-bottom:1px solid rgba(16,185,129,.1);box-shadow:var(--shadow);z-index:1000;transition:.3s;}
+        .header-content{max-width:1200px;margin:0 auto;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;}
+        .logo{display:flex;align-items:center;gap:1rem;}
+        .logo-icon{width:50px;height:50px;background:var(--bg-gradient);border-radius:50%;display:flex;align-items:center;justify-content:center;
+            color:#fff;font-size:24px;font-weight:bold;animation:pulse 2s infinite;}
+        @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+        .logo h1{color:var(--primary);font-size:1.8rem;font-weight:700;background:var(--bg-gradient);
+            -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+        .logo p{color:var(--text-light);font-size:.9rem;margin-top:-5px;}
+        nav{display:flex;gap:2rem;align-items:center;}
+        nav a{color:var(--text-dark);text-decoration:none;font-weight:500;padding:.5rem 1rem;border-radius:25px;transition:.3s;position:relative;overflow:hidden;}
+        nav a::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:var(--bg-gradient);transition:left .3s;z-index:-1;}
+        nav a:hover::before{left:0}nav a:hover{color:#fff;transform:translateY(-2px);}
+        .menu-toggle{display:none;flex-direction:column;cursor:pointer;padding:5px;} .menu-toggle span{width:25px;height:3px;background:var(--primary);margin:3px 0;transition:.3s;}
+        main{margin-top:100px;min-height:calc(100vh - 100px);background:rgba(248,250,252,.8);backdrop-filter:blur(10px);}
+        .hero{min-height:80vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:2rem;position:relative;}
+        .hero-content{max-width:800px;animation:fadeInUp 1s ease}@keyframes fadeInUp{from{opacity:0;transform:translateY(50px)}to{opacity:1;transform:translateY(0)}}
+        .hero h1{font-size:4rem;margin-bottom:1rem;background:var(--bg-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+            background-clip:text;animation:textGlow 4s ease-in-out infinite alternate;font-weight:700;letter-spacing:-.02em;}
+        @keyframes textGlow{from{filter:drop-shadow(0 0 20px rgba(16,185,129,.3))}to{filter:drop-shadow(0 0 30px rgba(15,23,42,.5))}}
+        .hero p{font-size:1.5rem;color:var(--text-light);margin-bottom:2rem;}
+        .cta-button{display:inline-block;padding:1rem 2rem;background:var(--bg-gradient);color:#fff;text-decoration:none;border-radius:50px;font-weight:600;
+            font-size:1.1rem;transition:.3s;box-shadow:var(--shadow);position:relative;overflow:hidden;}
+        .cta-button:hover{transform:translateY(-5px);box-shadow:var(--shadow-hover);}
+        .cta-button::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);transition:left .5s;}
+        .cta-button:hover::before{left:100%}
+        .content-section{max-width:1200px;margin:0 auto;padding:4rem 2rem;}
+        .section-title{font-size:2.5rem;text-align:center;margin-bottom:3rem;color:var(--primary);position:relative;}
+        .section-title::after{content:'';position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:100px;height:4px;background:var(--bg-gradient);border-radius:2px;}
+        .cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem;margin-top:3rem;}
+        .card{background:rgba(255,255,255,.95);backdrop-filter:blur(10px);padding:2.5rem;border-radius:16px;box-shadow:var(--shadow);transition:.4s;position:relative;overflow:hidden;border:1px solid rgba(16,185,129,.08);}
+        .card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent-warm));}
+        .card:hover{transform:translateY(-8px) scale(1.02);box-shadow:var(--shadow-hover);border-color:rgba(16,185,129,.2);}
+        .card-icon{width:56px;height:56px;background:linear-gradient(135deg,var(--accent),var(--accent-light));border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;
+            font-size:22px;color:#fff;box-shadow:0 4px 12px rgba(16,185,129,.25);}
+        .card h3{color:var(--primary);margin-bottom:1rem;font-size:1.3rem;} .card p{color:var(--text-light);line-height:1.6;}
+        .team-member{background:#fff;padding:2rem;border-radius:20px;box-shadow:var(--shadow);text-align:center;transition:.3s;max-width:400px;margin:0 auto;}
+        .team-member:hover{transform:translateY(-10px);box-shadow:var(--shadow-hover);}
+        .member-avatar{width:120px;height:120px;background:var(--bg-gradient);border-radius:50%;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;font-size:48px;color:#fff;font-weight:bold;}
+        .member-name{font-size:1.5rem;color:var(--primary);margin-bottom:.5rem;font-weight:600;} .member-title{color:var(--accent);font-weight:500;margin-bottom:1rem;}
+        .member-info{color:var(--text-light);line-height:1.6;}
+        .search-container{max-width:600px;margin:0 auto 3rem;position:relative;}
+        .search-input{width:100%;padding:1rem 1rem 1rem 3rem;border:2px solid rgba(102,126,234,.2);border-radius:50px;font-size:1rem;background:#fff;transition:.3s;}
+        .search-input:focus{outline:none;border-color:var(--primary);box-shadow:0 0 20px rgba(102,126,234,.2);}
+        .search-icon{position:absolute;left:1rem;top:50%;transform:translateY(-50%);color:var(--text-light);}
+        .question-card{background:#fff;padding:2rem;border-radius:20px;box-shadow:var(--shadow);margin-bottom:2rem;transition:.3s;border-left:5px solid var(--primary);}
+        .question-card:hover{transform:translateX(10px);box-shadow:var(--shadow-hover);}
+        .question-date{color:var(--accent);font-weight:600;margin-bottom:1rem;}
+        .question-text{font-size:1.1rem;color:var(--text-dark);margin-bottom:1rem;line-height:1.6;}
+        .answer-toggle{background:var(--bg-gradient);color:#fff;border:none;padding:.8rem 1.5rem;border-radius:25px;cursor:pointer;font-weight:500;transition:.3s;}
+        .answer-toggle:hover{transform:translateY(-2px);box-shadow:0 5px 15px rgba(102,126,234,.3);}
+        .answer-text{margin-top:1rem;padding:1rem;background:var(--bg-light);border-radius:10px;display:none;animation:slideDown .3s;}
+        @keyframes slideDown{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
+        .pagination{display:flex;justify-content:center;gap:1rem;margin-top:3rem;}
+        .pagination button{padding:.8rem 1.2rem;border:none;background:#fff;color:var(--primary);border-radius:10px;cursor:pointer;font-weight:500;transition:.3s;box-shadow:var(--shadow);}
+        .pagination button:hover{background:var(--primary);color:#fff;transform:translateY(-2px);}
+        .pagination button.active{background:var(--bg-gradient);color:#fff;}
+        footer{background:var(--primary-dark);color:#fff;text-align:center;padding:2rem;margin-top:4rem;}
+        @media(max-width:768px){
+          .header-content{padding:1rem;}
+          nav{display:none;position:absolute;top:100%;right:0;background:#fff;flex-direction:column;box-shadow:var(--shadow);border-radius:10px;min-width:200px;}
+          nav.active{display:flex;}
+          .menu-toggle{display:flex;}
+          .hero h1{font-size:2.5rem}.hero p{font-size:1.2rem}.content-section{padding:2rem 1rem}.cards-grid{grid-template-columns:1fr;}
+        }
+        .page-hero{min-height:40vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:2rem;}
+        .page-hero h1{font-size:3rem;background:var(--bg-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+        /* page fade */
+        .page{display:none;opacity:0;transition:opacity .5s ease;}
+        .page.active{opacity:1;}
     </style>
 </head>
 <body>
-    <!-- Animated Background -->
     <div class="animated-bg"></div>
-    
-    <!-- Floating Letters -->
     <div class="floating-letters" id="floatingLetters"></div>
 
+    <!-- ===== Header ===== -->
     <header id="header">
         <div class="header-content">
             <div class="logo">
@@ -636,24 +111,24 @@
                 </div>
             </div>
             <nav id="navbar">
-                <a href="#" onclick="showPage('home')">Home</a>
-                <a href="#" onclick="showPage('team')">Meet Our Team</a>
-                <a href="#" onclick="showPage('questions')">Question of the Day</a>
+                <!-- return false prevents default "#" jump -->
+                <a href="#" onclick="showPage('home');return false;">Home</a>
+                <a href="#" onclick="showPage('team');return false;">Meet Our Team</a>
+                <a href="#" onclick="showPage('questions');return false;">Question of the Day</a>
             </nav>
             <div class="menu-toggle" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </div>
         </div>
     </header>
 
+    <!-- ===== Main ===== -->
     <main id="mainContent">
         <!-- Home Page -->
         <div id="homePage" class="page active">
             <section class="hero">
                 <div class="hero-content">
-                    <h1>Welcome to Linguistics</h1>
+                    <h1>Welcome to Lexington Linguistics</h1>
                     <p>Explore the fascinating world of language with fellow enthusiasts</p>
                     <a href="#about" class="cta-button" onclick="scrollToAbout()">Discover More</a>
                 </div>
@@ -673,26 +148,10 @@
             <section class="content-section">
                 <h2 class="section-title">Our Goals</h2>
                 <div class="cards-grid">
-                    <div class="card">
-                        <div class="card-icon">🌍</div>
-                        <h3>Promote Linguistic Awareness</h3>
-                        <p>Increase understanding and appreciation of language diversity in our community.</p>
-                    </div>
-                    <div class="card">
-                        <div class="card-icon">📚</div>
-                        <h3>Educational Opportunities</h3>
-                        <p>Provide workshops, seminars, and discussions on various linguistic topics, from semantics to phonology.</p>
-                    </div>
-                    <div class="card">
-                        <div class="card-icon">🤖</div>
-                        <h3>Computational Linguistics</h3>
-                        <p>Develop computational methods and artificial intelligence alongside linguistic studies, exploring areas such as natural language processing and language modeling.</p>
-                    </div>
-                    <div class="card">
-                        <div class="card-icon">🤝</div>
-                        <h3>Community Building</h3>
-                        <p>Create a network of individuals passionate about languages and linguistics.</p>
-                    </div>
+                    <div class="card"><div class="card-icon">🌍</div><h3>Promote Linguistic Awareness</h3><p>Increase understanding and appreciation of language diversity in our community.</p></div>
+                    <div class="card"><div class="card-icon">📚</div><h3>Educational Opportunities</h3><p>Provide workshops, seminars, and discussions on various linguistic topics, from semantics to phonology.</p></div>
+                    <div class="card"><div class="card-icon">🤖</div><h3>Computational Linguistics</h3><p>Develop computational methods and artificial intelligence alongside linguistic studies, exploring areas such as natural language processing and language modeling.</p></div>
+                    <div class="card"><div class="card-icon">🤝</div><h3>Community Building</h3><p>Create a network of individuals passionate about languages and linguistics.</p></div>
                 </div>
             </section>
 
@@ -711,9 +170,7 @@
 
         <!-- Team Page -->
         <div id="teamPage" class="page">
-            <section class="page-hero">
-                <h1>Meet Our Team</h1>
-            </section>
+            <section class="page-hero"><h1>Meet Our Team</h1></section>
             <section class="content-section">
                 <div class="team-member">
                     <div class="member-avatar">VS</div>
@@ -730,238 +187,118 @@
 
         <!-- Questions Page -->
         <div id="questionsPage" class="page">
-            <section class="page-hero">
-                <h1>Question of the Day</h1>
-            </section>
+            <section class="page-hero"><h1>Question of the Day</h1></section>
             <section class="content-section">
                 <div class="search-container">
                     <div class="search-icon">🔍</div>
                     <input type="text" class="search-input" placeholder="Search questions..." onkeyup="searchQuestions()">
                 </div>
-                <div id="questionsContainer">
-                    <!-- Sample questions will be loaded here -->
-                </div>
+                <div id="questionsContainer"></div>
                 <div class="pagination" id="pagination"></div>
             </section>
         </div>
     </main>
 
-    <footer>
-        <p>&copy; 2024 Lexington Linguistics Club</p>
-    </footer>
+    <footer><p>&copy; 2025 Lexington Linguistics Club</p></footer>
 
+    <!-- ===== JavaScript ===== -->
     <script>
-        // Sample questions data
-        <script>
+    /* ----- state ----- */
     let questionsData = [];
     let filteredQuestions = [];
     let currentPage = 1;
     const questionsPerPage = 5;
 
-    async function loadQuestions() {
-        try {
-            const response = await fetch('questions.json');
-            questionsData = await response.json();
-            filteredQuestions = [...questionsData];
+    /* ----- navigation ----- */
+    function showPage(pageName){
+        document.querySelectorAll('.page').forEach(p=>{p.classList.remove('active');p.style.display='none';});
+        const page=document.getElementById(pageName+'Page');
+        if(page){page.style.display='block';setTimeout(()=>page.classList.add('active'),10);}
+        if(pageName==='questions') loadQuestions();
+    }
+    function toggleMenu(){document.getElementById('navbar').classList.toggle('active');}
+    function scrollToAbout(){document.getElementById('about').scrollIntoView({behavior:'smooth'});}
+
+    /* ----- floating letters ----- */
+    function createFloatingLetters(){
+        const letters=['A','B','C','Ɑ','ɸ','θ','ʃ','ʒ','ŋ','ɹ','ɭ','ɨ','ʊ','æ','ɔ','ə'];
+        const container=document.getElementById('floatingLetters');
+        setInterval(()=>{
+            const el=document.createElement('div');
+            el.className='letter';
+            el.textContent=letters[Math.random()*letters.length|0];
+            el.style.left=Math.random()*100+'%';
+            el.style.fontSize=15+Math.random()*20+'px';
+            el.style.animationDuration=10+Math.random()*10+'s';
+            container.appendChild(el);
+            setTimeout(()=>el.remove(),20000);
+        },3000);
+    }
+
+    /* ----- questions ----- */
+    async function loadQuestions(){
+        if(questionsData.length){filteredQuestions=[...questionsData];displayQuestions();return;}
+        try{
+            const res=await fetch('questions.json');
+            if(!res.ok) throw new Error(res.statusText);
+            questionsData=await res.json();
+            filteredQuestions=[...questionsData];
             displayQuestions();
-        } catch (err) {
-            console.error('Failed to load questions:', err);
-            document.getElementById('questionsContainer').innerHTML = '<p>Error loading questions.</p>';
+        }catch(e){
+            console.error('Failed to load questions:',e);
+            document.getElementById('questionsContainer').innerHTML='<p>Error loading questions.</p>';
         }
     }
-
-    function showPage(pageName) {
-        document.querySelectorAll('.page').forEach(page => {
-            page.classList.remove('active');
-            page.style.display = 'none';
-        });
-        
-        const targetPage = document.getElementById(pageName + 'Page');
-        if (targetPage) {
-            targetPage.style.display = 'block';
-            setTimeout(() => targetPage.classList.add('active'), 10);
-        }
-
-        if (pageName === 'questions') {
-            loadQuestions();
-        }
-    }
-        let currentPage = 1;
-        const questionsPerPage = 5;
-        let filteredQuestions = questionsData;
-
-        // Navigation
-        function showPage(pageName) {
-            document.querySelectorAll('.page').forEach(page => {
-                page.classList.remove('active');
-                page.style.display = 'none';
-            });
-            
-            const targetPage = document.getElementById(pageName + 'Page');
-            if (targetPage) {
-                targetPage.style.display = 'block';
-                setTimeout(() => targetPage.classList.add('active'), 10);
-            }
-
-            if (pageName === 'questions') {
-                displayQuestions();
-            }
-        }
-
-        function toggleMenu() {
-            const navbar = document.getElementById('navbar');
-            navbar.classList.toggle('active');
-        }
-
-        function scrollToAbout() {
-            document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        // Questions functionality
-        function displayQuestions() {
-            const container = document.getElementById('questionsContainer');
-            container.innerHTML = '';
-
-            const startIndex = (currentPage - 1) * questionsPerPage;
-            const endIndex = startIndex + questionsPerPage;
-            const questionsToShow = filteredQuestions.slice(startIndex, endIndex);
-
-            questionsToShow.forEach((q, index) => {
-                const card = document.createElement('div');
-                card.className = 'question-card';
-                card.innerHTML = `
+    function displayQuestions(){
+        const box=document.getElementById('questionsContainer');
+        box.innerHTML='';
+        const start=(currentPage-1)*questionsPerPage;
+        const slice=filteredQuestions.slice(start,start+questionsPerPage);
+        slice.forEach((q,i)=>{
+            box.insertAdjacentHTML('beforeend',`
+                <div class="question-card">
                     <div class="question-date">📅 ${q.date}</div>
                     <div class="question-text">${q.question}</div>
-                    ${q.answer ? `
-                        <button class="answer-toggle" onclick="toggleAnswer(${startIndex + index})">Show Answer</button>
-                        <div class="answer-text" id="answer-${startIndex + index}">
-                            <strong>Answer:</strong> ${q.answer}
-                        </div>
-                    ` : ''}
-                `;
-                container.appendChild(card);
-            });
-
-            displayPagination();
-        }
-
-        function toggleAnswer(index) {
-            const answerDiv = document.getElementById(`answer-${index}`);
-            const button = answerDiv.previousElementSibling;
-            
-            if (answerDiv.style.display === 'none' || answerDiv.style.display === '') {
-                answerDiv.style.display = 'block';
-                button.textContent = 'Hide Answer';
-            } else {
-                answerDiv.style.display = 'none';
-                button.textContent = 'Show Answer';
-            }
-        }
-
-        function displayPagination() {
-            const pagination = document.getElementById('pagination');
-            pagination.innerHTML = '';
-
-            const totalPages = Math.ceil(filteredQuestions.length / questionsPerPage);
-
-            if (totalPages <= 1) return;
-
-            if (currentPage > 1) {
-                const prevBtn = document.createElement('button');
-                prevBtn.textContent = 'Previous';
-                prevBtn.onclick = () => {
-                    currentPage--;
-                    displayQuestions();
-                };
-                pagination.appendChild(prevBtn);
-            }
-
-            for (let i = 1; i <= totalPages; i++) {
-                const btn = document.createElement('button');
-                btn.textContent = i;
-                btn.className = i === currentPage ? 'active' : '';
-                btn.onclick = () => {
-                    currentPage = i;
-                    displayQuestions();
-                };
-                pagination.appendChild(btn);
-            }
-
-            if (currentPage < totalPages) {
-                const nextBtn = document.createElement('button');
-                nextBtn.textContent = 'Next';
-                nextBtn.onclick = () => {
-                    currentPage++;
-                    displayQuestions();
-                };
-                pagination.appendChild(nextBtn);
-            }
-        }
-
-        function searchQuestions() {
-            const searchTerm = document.querySelector('.search-input').value.toLowerCase();
-            filteredQuestions = questionsData.filter(q => 
-                q.question.toLowerCase().includes(searchTerm) ||
-                (q.answer && q.answer.toLowerCase().includes(searchTerm))
-            );
-            currentPage = 1;
-            displayQuestions();
-        }
-
-        // Floating letters animation
-        function createFloatingLetters() {
-            const letters = ['A', 'B', 'C', 'Ɑ', 'ɸ', 'θ', 'ʃ', 'ʒ', 'ŋ', 'ɹ', 'ɭ', 'ɨ', 'ʊ', 'æ', 'ɔ', 'ə'];
-            const container = document.getElementById('floatingLetters');
-            
-            setInterval(() => {
-                const letter = document.createElement('div');
-                letter.className = 'letter';
-                letter.textContent = letters[Math.floor(Math.random() * letters.length)];
-                letter.style.left = Math.random() * 100 + '%';
-                letter.style.animationDuration = (Math.random() * 10 + 10) + 's';
-                letter.style.fontSize = (Math.random() * 20 + 15) + 'px';
-                
-                container.appendChild(letter);
-                
-                setTimeout(() => {
-                    if (letter.parentNode) {
-                        letter.remove();
-                    }
-                }, 20000);
-            }, 3000);
-        }
-
-        // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
-            showPage('home');
-            createFloatingLetters();
-            
-            // Add scroll effect to header
-            window.addEventListener('scroll', function() {
-                const header = document.getElementById('header');
-                if (window.scrollY > 100) {
-                    header.style.background = 'rgba(255, 255, 255, 0.98)';
-                } else {
-                    header.style.background = 'rgba(255, 255, 255, 0.95)';
-                }
-            });
+                    ${q.answer?`<button class="answer-toggle" onclick="toggleAnswer(${start+i})">Show Answer</button>
+                    <div class="answer-text" id="answer-${start+i}"><strong>Answer:</strong> ${q.answer}</div>`:''}
+                </div>`);
         });
+        renderPagination();
+    }
+    function toggleAnswer(idx){
+        const div=document.getElementById(`answer-${idx}`);
+        const btn=div.previousElementSibling;
+        const open=div.style.display==='block';
+        div.style.display=open?'none':'block';
+        btn.textContent=open?'Show Answer':'Hide Answer';
+    }
+    function renderPagination(){
+        const pager=document.getElementById('pagination');
+        pager.innerHTML='';
+        const pages=Math.ceil(filteredQuestions.length/questionsPerPage);
+        if(pages<=1) return;
+        if(currentPage>1) pager.insertAdjacentHTML('beforeend',`<button onclick="currentPage--;displayQuestions()">Previous</button>`);
+        for(let i=1;i<=pages;i++){
+            pager.insertAdjacentHTML('beforeend',`<button class="${i===currentPage?'active':''}" onclick="currentPage=${i};displayQuestions()">${i}</button>`);
+        }
+        if(currentPage<pages) pager.insertAdjacentHTML('beforeend',`<button onclick="currentPage++;displayQuestions()">Next</button>`);
+    }
+    function searchQuestions(){
+        const term=document.querySelector('.search-input').value.toLowerCase();
+        filteredQuestions=questionsData.filter(q=>q.question.toLowerCase().includes(term)||(q.answer&&q.answer.toLowerCase().includes(term)));
+        currentPage=1;displayQuestions();
+    }
 
-        // Add some CSS for page transitions
-        const style = document.createElement('style');
-        style.textContent = `
-            .page {
-                display: none;
-                opacity: 0;
-                transition: opacity 0.5s ease;
-            }
-            .page.active {
-                opacity: 1;
-            }
-        `;
-        document.head.appendChild(style);
+    /* ----- init ----- */
+    document.addEventListener('DOMContentLoaded',()=>{
+        showPage('home');
+        createFloatingLetters();
+        window.addEventListener('scroll',()=>{
+            document.getElementById('header').style.background=
+                window.scrollY>100?'rgba(255,255,255,.98)':'rgba(255,255,255,.95)';
+        });
+    });
     </script>
 </body>
 </html>
-
 
