@@ -5,26 +5,132 @@
 <title>Lexington Linguistics Club</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- ===== CSS (same palette, new paginator look) ===== -->
+<!-- =========  CSS  ========= -->
 <style>
-/* …[all earlier CSS stays exactly the same]… */
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --primary:#0F172A;--primary-light:#334155;--primary-dark:#020617;
+  --accent:#10B981;--accent-light:#34D399;--accent-warm:#F59E0B;
+  --text-dark:#1E293B;--text-light:#64748B;--bg-light:#F8FAFC;
+  --bg-gradient:linear-gradient(135deg,#0F172A 0%,#334155 50%,#10B981 100%);
+  --shadow:0 4px 20px rgba(15,23,42,.1);--shadow-hover:0 8px 40px rgba(15,23,42,.2);
+}
 
-/* pagination tweaks (make arrows a bit wider) */
+body{font-family:'Segoe UI',Tahoma,Verdana,sans-serif;line-height:1.6;color:var(--text-dark);overflow-x:hidden;}
+
+/* animated background */
+.animated-bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;
+  background:linear-gradient(-45deg,#0F172A,#334155,#475569,#10B981);
+  background-size:400% 400%;animation:bgShift 20s ease infinite;}
+@keyframes bgShift{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}
+
+/* floating letters */
+.floating-letters{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:-1;}
+.letter{position:absolute;font-size:18px;color:rgba(16,185,129,.15);animation:float 25s linear infinite;font-weight:500;}
+@keyframes float{0%{transform:translateY(100vh) rotate(0)}100%{transform:translateY(-100px) rotate(360deg)}}
+
+/* header */
+header{position:fixed;top:0;width:100%;background:rgba(248,250,252,.85);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(16,185,129,.1);box-shadow:var(--shadow);z-index:1000;transition:.3s;}
+.header-content{max-width:1200px;margin:0 auto;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;}
+.logo{display:flex;align-items:center;gap:1rem;}
+.logo-icon{width:50px;height:50px;background:var(--bg-gradient);border-radius:50%;display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:24px;font-weight:bold;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+.logo h1{font-size:1.8rem;font-weight:700;background:var(--bg-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.logo p{font-size:.9rem;color:var(--text-light);margin-top:-5px;}
+
+nav{display:flex;gap:2rem;align-items:center;}
+nav a{color:var(--text-dark);text-decoration:none;font-weight:500;padding:.5rem 1rem;border-radius:25px;transition:.3s;position:relative;overflow:hidden;}
+nav a::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:var(--bg-gradient);transition:left .3s;z-index:-1;}
+nav a:hover::before{left:0}nav a:hover{color:#fff;transform:translateY(-2px);}
+
+.menu-toggle{display:none;flex-direction:column;cursor:pointer;padding:5px}
+.menu-toggle span{width:25px;height:3px;background:var(--primary);margin:3px 0;transition:.3s}
+
+main{margin-top:100px;min-height:calc(100vh - 100px);background:rgba(248,250,252,.8);backdrop-filter:blur(10px);}
+
+/* hero */
+.hero{min-height:80vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:2rem;}
+.hero-content{max-width:800px;animation:fadeInUp 1s ease;}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(50px)}to{opacity:1;transform:translateY(0)}}
+.hero h1{font-size:4rem;margin-bottom:1rem;background:var(--bg-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  animation:glow 4s ease-in-out infinite alternate;font-weight:700;letter-spacing:-.02em;}
+@keyframes glow{from{filter:drop-shadow(0 0 20px rgba(16,185,129,.3))}to{filter:drop-shadow(0 0 30px rgba(15,23,42,.5))}}
+.hero p{font-size:1.5rem;color:var(--text-light);margin-bottom:2rem;}
+
+.cta-button{display:inline-block;padding:1rem 2rem;background:var(--bg-gradient);color:#fff;text-decoration:none;border-radius:50px;font-weight:600;font-size:1.1rem;
+  transition:.3s;box-shadow:var(--shadow);position:relative;overflow:hidden;}
+.cta-button:hover{transform:translateY(-5px);box-shadow:var(--shadow-hover);}
+.cta-button::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);transition:left .5s;}
+.cta-button:hover::before{left:100%}
+
+/* sections */
+.content-section{max-width:1200px;margin:0 auto;padding:4rem 2rem;}
+.section-title{font-size:2.5rem;text-align:center;margin-bottom:3rem;color:var(--primary);position:relative;}
+.section-title::after{content:'';position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:100px;height:4px;background:var(--bg-gradient);border-radius:2px;}
+
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem;margin-top:3rem;}
+.card{background:rgba(255,255,255,.95);backdrop-filter:blur(10px);padding:2.5rem;border-radius:16px;box-shadow:var(--shadow);transition:.4s;position:relative;overflow:hidden;border:1px solid rgba(16,185,129,.08);}
+.card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent-warm));}
+.card:hover{transform:translateY(-8px) scale(1.02);box-shadow:var(--shadow-hover);border-color:rgba(16,185,129,.2);}
+.card-icon{width:56px;height:56px;background:linear-gradient(135deg,var(--accent),var(--accent-light));border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;font-size:22px;color:#fff;box-shadow:0 4px 12px rgba(16,185,129,.25);}
+.card h3{font-size:1.3rem;color:var(--primary);margin-bottom:1rem;}
+.card p{color:var(--text-light);line-height:1.6;}
+
+.team-member{background:#fff;padding:2rem;border-radius:20px;box-shadow:var(--shadow);text-align:center;transition:.3s;max-width:400px;margin:0 auto;}
+.team-member:hover{transform:translateY(-10px);box-shadow:var(--shadow-hover);}
+.member-avatar-img{width:120px;height:120px;border-radius:50%;object-fit:cover;object-position:center;margin-bottom:1rem;box-shadow:0 4px 12px rgba(0,0,0,.1);}
+.member-name{font-size:1.5rem;color:var(--primary);margin-bottom:.5rem;font-weight:600;}
+.member-title{color:var(--accent);font-weight:500;margin-bottom:1rem;}
+.member-info{color:var(--text-light);line-height:1.6;}
+
+.search-container{max-width:600px;margin:0 auto 3rem;position:relative;}
+.search-input{width:100%;padding:1rem 1rem 1rem 3rem;border:2px solid rgba(102,126,234,.2);border-radius:50px;font-size:1rem;background:#fff;transition:.3s;}
+.search-input:focus{outline:none;border-color:var(--primary);box-shadow:0 0 20px rgba(102,126,234,.2);}
+.search-icon{position:absolute;left:1rem;top:50%;transform:translateY(-50%);color:var(--text-light);}
+
+.question-card{background:#fff;padding:2rem;border-radius:20px;box-shadow:var(--shadow);margin-bottom:2rem;transition:.3s;border-left:5px solid var(--primary);}
+.question-card:hover{transform:translateX(10px);box-shadow:var(--shadow-hover);}
+.question-date{color:var(--accent);font-weight:600;margin-bottom:1rem;}
+.question-text{font-size:1.1rem;color:var(--text-dark);margin-bottom:1rem;line-height:1.6;}
+.answer-toggle{background:var(--bg-gradient);color:#fff;border:none;padding:.8rem 1.5rem;border-radius:25px;cursor:pointer;font-weight:500;transition:.3s;}
+.answer-toggle:hover{transform:translateY(-2px);box-shadow:0 5px 15px rgba(102,126,234,.3);}
+.answer-text{margin-top:1rem;padding:1rem;background:var(--bg-light);border-radius:10px;display:none;animation:slideDown .3s;}
+@keyframes slideDown{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
+
+/* compact pagination */
+.pagination{display:flex;justify-content:center;gap:1rem;margin-top:3rem;}
 .pagination button{
-  padding:.65rem 1rem;
-  border:none;background:#fff;color:var(--primary);
-  border-radius:10px;cursor:pointer;font-weight:500;transition:.3s;
-  box-shadow:var(--shadow);min-width:36px;
+  padding:.65rem 1rem;border:none;background:#fff;color:var(--primary);
+  border-radius:10px;cursor:pointer;font-weight:500;transition:.3s;box-shadow:var(--shadow);min-width:36px;
 }
 .pagination button:hover:not([disabled]){background:var(--primary);color:#fff;transform:translateY(-2px);}
 .pagination button.active{background:var(--bg-gradient);color:#fff;cursor:default;}
 .pagination button[disabled]{opacity:.4;cursor:default;transform:none;}
+
+footer{background:var(--primary-dark);color:#fff;text-align:center;padding:2rem;margin-top:4rem;}
+
+@media(max-width:768px){
+  .header-content{padding:1rem;}
+  nav{display:none;position:absolute;top:100%;right:0;background:#fff;flex-direction:column;box-shadow:var(--shadow);border-radius:10px;min-width:200px;}
+  nav.active{display:flex;}
+  .menu-toggle{display:flex;}
+  .hero h1{font-size:2.5rem}.hero p{font-size:1.2rem}.content-section{padding:2rem 1rem}.cards-grid{grid-template-columns:1fr;}
+}
+
+.page-hero{min-height:40vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:2rem;}
+.page-hero h1{font-size:3rem;background:var(--bg-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+
+.page{display:none;opacity:0;transition:opacity .5s ease;}
+.page.active{opacity:1;}
 </style>
 </head>
 <body>
 <div class="animated-bg"></div>
 <div class="floating-letters" id="floatingLetters"></div>
 
+<!-- ===== Header ===== -->
 <header id="header">
   <div class="header-content">
     <div class="logo">
@@ -40,13 +146,53 @@
   </div>
 </header>
 
+<!-- ===== Main ===== -->
 <main>
-  <!-- ========== HOME (unchanged) ========== -->
+  <!-- Home -->
   <div id="homePage" class="page active">
-    <!-- …content identical to previous version… -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Welcome to Lexington Linguistics</h1>
+        <p>Explore the fascinating world of language with fellow enthusiasts</p>
+        <a href="#about" class="cta-button" onclick="scrollToAbout()">Discover More</a>
+      </div>
+    </section>
+
+    <section id="about" class="content-section">
+      <h2 class="section-title">About Us</h2>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-icon">🗣️</div>
+          <h3>Community Focused</h3>
+          <p>We are a community of language enthusiasts based in Lexington, Massachusetts. Whether you're new to linguistics or a seasoned researcher, our club offers a welcoming environment for all.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2 class="section-title">Our Goals</h2>
+      <div class="cards-grid">
+        <div class="card"><div class="card-icon">🌍</div><h3>Promote Linguistic Awareness</h3><p>Increase understanding and appreciation of language diversity in our community.</p></div>
+        <div class="card"><div class="card-icon">📚</div><h3>Educational Opportunities</h3><p>Provide workshops, seminars, and discussions on various linguistic topics, from semantics to phonology.</p></div>
+        <div class="card"><div class="card-icon">🤖</div><h3>Computational Linguistics</h3><p>Explore natural language processing, language modeling, and more.</p></div>
+        <div class="card"><div class="card-icon">🤝</div><h3>Community Building</h3><p>Create a network of individuals passionate about languages and linguistics.</p></div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2 class="section-title">Get Involved</h2>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-icon">✉️</div>
+          <h3>Contact Us</h3>
+          <p>Interested in joining or have questions? We'd love to hear from you!</p>
+          <p><strong>Email:</strong> <a href="mailto:lexlingclub@gmail.com">lexlingclub@gmail.com</a></p>
+        </div>
+      </div>
+    </section>
   </div>
 
-  <!-- ========== TEAM (with image) ========== -->
+  <!-- Team -->
   <div id="teamPage" class="page">
     <section class="page-hero"><h1>Meet Our Team</h1></section>
     <section class="content-section">
@@ -63,7 +209,7 @@
     </section>
   </div>
 
-  <!-- ========== QUESTIONS ========== -->
+  <!-- Questions -->
   <div id="questionsPage" class="page">
     <section class="page-hero"><h1>Question of the Day</h1></section>
     <section class="content-section">
@@ -79,13 +225,13 @@
 
 <footer><p>&copy; 2025 Lexington Linguistics Club</p></footer>
 
-<!-- ===== JavaScript (new compact paginator) ===== -->
+<!-- ========= JavaScript ========= -->
 <script>
-/* ---------- state ---------- */
+/* ----- state ----- */
 let questionsData=[],filteredQuestions=[];
 let currentPage=1;const perPage=5;
 
-/* ---------- navigation ---------- */
+/* ----- navigation ----- */
 function showPage(name){
   document.querySelectorAll('.page').forEach(p=>{p.classList.remove('active');p.style.display='none';});
   const pg=document.getElementById(name+'Page');
@@ -95,43 +241,43 @@ function showPage(name){
 function toggleMenu(){document.getElementById('navbar').classList.toggle('active');}
 function scrollToAbout(){document.getElementById('about').scrollIntoView({behavior:'smooth'});}
 
-/* ---------- floating letters ---------- */
+/* ----- floating letters ----- */
 function createFloatingLetters(){
   const letters=['A','B','C','Ɑ','ɸ','θ','ʃ','ʒ','ŋ','ɹ','ɭ','ɨ','ʊ','æ','ɔ','ə'];
   const layer=document.getElementById('floatingLetters');
   setInterval(()=>{
-    const el=document.createElement('div');
-    el.className='letter';
-    el.textContent=letters[Math.random()*letters.length|0];
-    el.style.left=Math.random()*100+'%';
-    el.style.fontSize=15+Math.random()*20+'px';
-    el.style.animationDuration=10+Math.random()*10+'s';
-    layer.appendChild(el);
-    setTimeout(()=>el.remove(),20000);
+    const d=document.createElement('div');
+    d.className='letter';
+    d.textContent=letters[Math.random()*letters.length|0];
+    d.style.left=Math.random()*100+'%';
+    d.style.fontSize=15+Math.random()*20+'px';
+    d.style.animationDuration=10+Math.random()*10+'s';
+    layer.appendChild(d);
+    setTimeout(()=>d.remove(),20000);
   },3000);
 }
 
-/* ---------- questions ---------- */
+/* ----- questions & pagination ----- */
 async function loadQuestions(){
-  if(questionsData.length){filteredQuestions=[...questionsData];ensurePage();renderQuestions();return;}
+  if(questionsData.length){filteredQuestions=[...questionsData];clampPage();render();return;}
   try{
     const res=await fetch('questions.json');
     if(!res.ok) throw new Error(res.statusText);
     questionsData=await res.json();
     filteredQuestions=[...questionsData];
-    ensurePage();renderQuestions();
+    clampPage();render();
   }catch(e){
     console.error('Failed to load questions:',e);
     document.getElementById('questionsContainer').innerHTML='<p>Error loading questions.</p>';
   }
 }
-function ensurePage(){
+function clampPage(){
   const pages=Math.max(1,Math.ceil(filteredQuestions.length/perPage));
-  if(currentPage>pages) currentPage=pages;
+  currentPage=Math.min(currentPage,pages);
 }
+function render(){renderQuestions();renderPagination();}
 function renderQuestions(){
-  const box=document.getElementById('questionsContainer');
-  box.innerHTML='';
+  const box=document.getElementById('questionsContainer');box.innerHTML='';
   const start=(currentPage-1)*perPage;
   filteredQuestions.slice(start,start+perPage).forEach((q,i)=>{
     box.insertAdjacentHTML('beforeend',`
@@ -142,7 +288,6 @@ function renderQuestions(){
         <div class="answer-text" id="answer-${start+i}"><strong>Answer:</strong> ${q.answer}</div>`:''}
       </div>`);
   });
-  renderPagination();
 }
 function toggleAnswer(i){
   const div=document.getElementById('answer-'+i);
@@ -152,49 +297,36 @@ function toggleAnswer(i){
   btn.textContent=open?'Show Answer':'Hide Answer';
 }
 
-/* ---------- compact pagination ---------- */
+/* compact pagination */
 function renderPagination(){
-  const pager=document.getElementById('pagination');
-  pager.innerHTML='';
+  const pager=document.getElementById('pagination');pager.innerHTML='';
   const pages=Math.ceil(filteredQuestions.length/perPage);
   if(pages<=1) return;
-
-  // left arrow
   pager.insertAdjacentHTML('beforeend',
     `<button ${currentPage===1?'disabled':''} onclick="gotoPage(${currentPage-1})">&lt;</button>`);
-
-  // previous page number
-  if(currentPage-1>=1)
-    pager.insertAdjacentHTML('beforeend',`<button onclick="gotoPage(${currentPage-1})">${currentPage-1}</button>`);
-
-  // current page
+  if(currentPage-1>=1) pager.insertAdjacentHTML('beforeend',`<button onclick="gotoPage(${currentPage-1})">${currentPage-1}</button>`);
   pager.insertAdjacentHTML('beforeend',`<button class="active" disabled>${currentPage}</button>`);
-
-  // next page number
-  if(currentPage+1<=pages)
-    pager.insertAdjacentHTML('beforeend',`<button onclick="gotoPage(${currentPage+1})">${currentPage+1}</button>`);
-
-  // right arrow
+  if(currentPage+1<=pages) pager.insertAdjacentHTML('beforeend',`<button onclick="gotoPage(${currentPage+1})">${currentPage+1}</button>`);
   pager.insertAdjacentHTML('beforeend',
     `<button ${currentPage===pages?'disabled':''} onclick="gotoPage(${currentPage+1})">&gt;</button>`);
 }
 function gotoPage(n){
   const pages=Math.ceil(filteredQuestions.length/perPage);
   if(n<1||n>pages||n===currentPage) return;
-  currentPage=n;renderQuestions();
+  currentPage=n;render();
 }
 
-/* ---------- search ---------- */
+/* ----- search ----- */
 function searchQuestions(){
   const term=document.querySelector('.search-input').value.toLowerCase();
   filteredQuestions=questionsData.filter(q =>
     q.question.toLowerCase().includes(term) ||
     (q.answer&&q.answer.toLowerCase().includes(term))
   );
-  currentPage=1;ensurePage();renderQuestions();
+  currentPage=1;clampPage();render();
 }
 
-/* ---------- boot ---------- */
+/* ----- boot ----- */
 document.addEventListener('DOMContentLoaded',()=>{
   showPage('home');
   createFloatingLetters();
@@ -205,5 +337,5 @@ document.addEventListener('DOMContentLoaded',()=>{
 });
 </script>
 </body>
-</html>
+</html>m
 
