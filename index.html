@@ -5,8 +5,9 @@
 <title>Lexington Linguistics Club</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- =========  CSS  ========= -->
+<!-- =========  FULL CSS  ========= -->
 <style>
+/* ------------- root + resets ------------- */
 *{margin:0;padding:0;box-sizing:border-box;}
 :root{
   --primary:#0F172A;--primary-light:#334155;--primary-dark:#020617;
@@ -15,21 +16,19 @@
   --bg-gradient:linear-gradient(135deg,#0F172A 0%,#334155 50%,#10B981 100%);
   --shadow:0 4px 20px rgba(15,23,42,.1);--shadow-hover:0 8px 40px rgba(15,23,42,.2);
 }
-
 body{font-family:'Segoe UI',Tahoma,Verdana,sans-serif;line-height:1.6;color:var(--text-dark);overflow-x:hidden;}
 
-/* animated background */
-.animated-bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;
+/* ------------- animated bg ------------- */
+.animated-bg{position:fixed;inset:0;z-index:-1;
   background:linear-gradient(-45deg,#0F172A,#334155,#475569,#10B981);
   background-size:400% 400%;animation:bgShift 20s ease infinite;}
 @keyframes bgShift{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}
 
-/* floating letters */
-.floating-letters{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:-1;}
+.floating-letters{position:fixed;inset:0;pointer-events:none;z-index:-1;}
 .letter{position:absolute;font-size:18px;color:rgba(16,185,129,.15);animation:float 25s linear infinite;font-weight:500;}
 @keyframes float{0%{transform:translateY(100vh) rotate(0)}100%{transform:translateY(-100px) rotate(360deg)}}
 
-/* header */
+/* ------------- header ------------- */
 header{position:fixed;top:0;width:100%;background:rgba(248,250,252,.85);backdrop-filter:blur(12px);
   border-bottom:1px solid rgba(16,185,129,.1);box-shadow:var(--shadow);z-index:1000;transition:.3s;}
 .header-content{max-width:1200px;margin:0 auto;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;}
@@ -37,17 +36,19 @@ header{position:fixed;top:0;width:100%;background:rgba(248,250,252,.85);backdrop
 .logo-icon{width:50px;height:50px;background:var(--bg-gradient);border-radius:50%;display:flex;align-items:center;justify-content:center;
   color:#fff;font-size:24px;font-weight:bold;animation:pulse 2s infinite;}
 @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
-.logo h1{font-size:1.8rem;font-weight:700;background:var(--bg-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.logo h1{font-size:1.8rem;font-weight:700;background:var(--bg-gradient);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .logo p{font-size:.9rem;color:var(--text-light);margin-top:-5px;}
 
 nav{display:flex;gap:2rem;align-items:center;}
 nav a{color:var(--text-dark);text-decoration:none;font-weight:500;padding:.5rem 1rem;border-radius:25px;transition:.3s;position:relative;overflow:hidden;}
-nav a::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:var(--bg-gradient);transition:left .3s;z-index:-1;}
+nav a::before{content:'';position:absolute;inset:0;left:-100%;background:var(--bg-gradient);transition:left .3s;z-index:-1;}
 nav a:hover::before{left:0}nav a:hover{color:#fff;transform:translateY(-2px);}
 
 .menu-toggle{display:none;flex-direction:column;cursor:pointer;padding:5px}
 .menu-toggle span{width:25px;height:3px;background:var(--primary);margin:3px 0;transition:.3s}
 
+/* ------------- main wrapper ------------- */
 main{margin-top:100px;min-height:calc(100vh - 100px);background:rgba(248,250,252,.8);backdrop-filter:blur(10px);}
 
 /* hero */
@@ -62,7 +63,7 @@ main{margin-top:100px;min-height:calc(100vh - 100px);background:rgba(248,250,252
 .cta-button{display:inline-block;padding:1rem 2rem;background:var(--bg-gradient);color:#fff;text-decoration:none;border-radius:50px;font-weight:600;font-size:1.1rem;
   transition:.3s;box-shadow:var(--shadow);position:relative;overflow:hidden;}
 .cta-button:hover{transform:translateY(-5px);box-shadow:var(--shadow-hover);}
-.cta-button::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);transition:left .5s;}
+.cta-button::before{content:'';position:absolute;inset:0;left:-100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);transition:left .5s;}
 .cta-button:hover::before{left:100%}
 
 /* sections */
@@ -116,7 +117,9 @@ footer{background:var(--primary-dark);color:#fff;text-align:center;padding:2rem;
   nav{display:none;position:absolute;top:100%;right:0;background:#fff;flex-direction:column;box-shadow:var(--shadow);border-radius:10px;min-width:200px;}
   nav.active{display:flex;}
   .menu-toggle{display:flex;}
-  .hero h1{font-size:2.5rem}.hero p{font-size:1.2rem}.content-section{padding:2rem 1rem}.cards-grid{grid-template-columns:1fr;}
+  .hero h1{font-size:2.5rem}.hero p{font-size:1.2rem}
+  .content-section{padding:2rem 1rem}
+  .cards-grid{grid-template-columns:1fr;}
 }
 
 .page-hero{min-height:40vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:2rem;}
@@ -138,11 +141,11 @@ footer{background:var(--primary-dark);color:#fff;text-align:center;padding:2rem;
       <div><h1>Lexington Linguistics Club</h1><p>Unlocking the Power of Language</p></div>
     </div>
     <nav id="navbar">
-      <a href="#" onclick="showPage('home');return false;">Home</a>
-      <a href="#" onclick="showPage('team');return false;">Meet Our Team</a>
-      <a href="#" onclick="showPage('questions');return false;">Question of the Day</a>
+      <a href="#" onclick="navigate('home')">Home</a>
+      <a href="#" onclick="navigate('team')">Meet Our Team</a>
+      <a href="#" onclick="navigate('questions')">Question of the Day</a>
     </nav>
-    <div class="menu-toggle" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+    <div class="menu-toggle" id="menuToggle" onclick="toggleMenu()"><span></span><span></span><span></span></div>
   </div>
 </header>
 
@@ -173,7 +176,7 @@ footer{background:var(--primary-dark);color:#fff;text-align:center;padding:2rem;
       <h2 class="section-title">Our Goals</h2>
       <div class="cards-grid">
         <div class="card"><div class="card-icon">🌍</div><h3>Promote Linguistic Awareness</h3><p>Increase understanding and appreciation of language diversity in our community.</p></div>
-        <div class="card"><div class="card-icon">📚</div><h3>Educational Opportunities</h3><p>Provide workshops, seminars, and discussions on various linguistic topics, from semantics to phonology.</p></div>
+        <div class="card"><div class="card-icon">📚</div><h3>Educational Opportunities</h3><p>Provide workshops, seminars, and discussions on various linguistic topics.</p></div>
         <div class="card"><div class="card-icon">🤖</div><h3>Computational Linguistics</h3><p>Explore natural language processing, language modeling, and more.</p></div>
         <div class="card"><div class="card-icon">🤝</div><h3>Community Building</h3><p>Create a network of individuals passionate about languages and linguistics.</p></div>
       </div>
@@ -185,7 +188,7 @@ footer{background:var(--primary-dark);color:#fff;text-align:center;padding:2rem;
         <div class="card">
           <div class="card-icon">✉️</div>
           <h3>Contact Us</h3>
-          <p>Interested in joining or have questions? We'd love to hear from you!</p>
+          <p>Interested in joining? We'd love to hear from you!</p>
           <p><strong>Email:</strong> <a href="mailto:lexlingclub@gmail.com">lexlingclub@gmail.com</a></p>
         </div>
       </div>
@@ -201,7 +204,7 @@ footer{background:var(--primary-dark);color:#fff;text-align:center;padding:2rem;
         <div class="member-name">Vedant Saran</div>
         <div class="member-title">President and Founder</div>
         <div class="member-info">
-          <p>Vedant is a passionate linguist with a particular interest in computational linguistics.</p>
+          <p>Vedant is a passionate linguist with interests in computational linguistics.</p>
           <p><strong>School:</strong> Lexington High School, Class of 2026</p>
           <p><strong>Contact:</strong> <a href="mailto:vedantsaran@gmail.com">vedantsaran@gmail.com</a></p>
         </div>
@@ -227,21 +230,33 @@ footer{background:var(--primary-dark);color:#fff;text-align:center;padding:2rem;
 
 <!-- ========= JavaScript ========= -->
 <script>
-/* ----- state ----- */
+/* ----- shared state ----- */
 let questionsData=[],filteredQuestions=[];
 let currentPage=1;const perPage=5;
 
-/* ----- navigation ----- */
+/* ----- navigation / hamburger ----- */
+function closeMenu(){document.getElementById('navbar').classList.remove('active');}
+function toggleMenu(){document.getElementById('navbar').classList.toggle('active');}
+function navigate(page){showPage(page);closeMenu();}
 function showPage(name){
   document.querySelectorAll('.page').forEach(p=>{p.classList.remove('active');p.style.display='none';});
-  const pg=document.getElementById(name+'Page');
-  if(pg){pg.style.display='block';setTimeout(()=>pg.classList.add('active'),10);}
+  const pg=document.getElementById(name+'Page');if(pg){pg.style.display='block';setTimeout(()=>pg.classList.add('active'),10);}
   if(name==='questions') loadQuestions();
 }
-function toggleMenu(){document.getElementById('navbar').classList.toggle('active');}
+
+/* click outside nav to close mobile menu */
+document.addEventListener('click',e=>{
+  const nav=document.getElementById('navbar');
+  const toggle=document.getElementById('menuToggle');
+  if(nav.classList.contains('active') && !nav.contains(e.target) && !toggle.contains(e.target)){
+    closeMenu();
+  }
+});
+
+/* scroll to about (home page button) */
 function scrollToAbout(){document.getElementById('about').scrollIntoView({behavior:'smooth'});}
 
-/* ----- floating letters ----- */
+/* floating letters */
 function createFloatingLetters(){
   const letters=['A','B','C','Ɑ','ɸ','θ','ʃ','ʒ','ŋ','ɹ','ɭ','ɨ','ʊ','æ','ɔ','ə'];
   const layer=document.getElementById('floatingLetters');
@@ -252,8 +267,7 @@ function createFloatingLetters(){
     d.style.left=Math.random()*100+'%';
     d.style.fontSize=15+Math.random()*20+'px';
     d.style.animationDuration=10+Math.random()*10+'s';
-    layer.appendChild(d);
-    setTimeout(()=>d.remove(),20000);
+    layer.appendChild(d);setTimeout(()=>d.remove(),20000);
   },3000);
 }
 
@@ -264,17 +278,13 @@ async function loadQuestions(){
     const res=await fetch('questions.json');
     if(!res.ok) throw new Error(res.statusText);
     questionsData=await res.json();
-    filteredQuestions=[...questionsData];
-    clampPage();render();
+    filteredQuestions=[...questionsData];clampPage();render();
   }catch(e){
     console.error('Failed to load questions:',e);
     document.getElementById('questionsContainer').innerHTML='<p>Error loading questions.</p>';
   }
 }
-function clampPage(){
-  const pages=Math.max(1,Math.ceil(filteredQuestions.length/perPage));
-  currentPage=Math.min(currentPage,pages);
-}
+function clampPage(){currentPage=Math.min(currentPage,Math.max(1,Math.ceil(filteredQuestions.length/perPage)));}
 function render(){renderQuestions();renderPagination();}
 function renderQuestions(){
   const box=document.getElementById('questionsContainer');box.innerHTML='';
@@ -302,33 +312,24 @@ function renderPagination(){
   const pager=document.getElementById('pagination');pager.innerHTML='';
   const pages=Math.ceil(filteredQuestions.length/perPage);
   if(pages<=1) return;
-  pager.insertAdjacentHTML('beforeend',
-    `<button ${currentPage===1?'disabled':''} onclick="gotoPage(${currentPage-1})">&lt;</button>`);
-  if(currentPage-1>=1) pager.insertAdjacentHTML('beforeend',`<button onclick="gotoPage(${currentPage-1})">${currentPage-1}</button>`);
+  pager.insertAdjacentHTML('beforeend',`<button ${currentPage===1?'disabled':''} onclick="goto(${currentPage-1})">&lt;</button>`);
+  if(currentPage-1>=1) pager.insertAdjacentHTML('beforeend',`<button onclick="goto(${currentPage-1})">${currentPage-1}</button>`);
   pager.insertAdjacentHTML('beforeend',`<button class="active" disabled>${currentPage}</button>`);
-  if(currentPage+1<=pages) pager.insertAdjacentHTML('beforeend',`<button onclick="gotoPage(${currentPage+1})">${currentPage+1}</button>`);
-  pager.insertAdjacentHTML('beforeend',
-    `<button ${currentPage===pages?'disabled':''} onclick="gotoPage(${currentPage+1})">&gt;</button>`);
+  if(currentPage+1<=pages) pager.insertAdjacentHTML('beforeend',`<button onclick="goto(${currentPage+1})">${currentPage+1}</button>`);
+  pager.insertAdjacentHTML('beforeend',`<button ${currentPage===pages?'disabled':''} onclick="goto(${currentPage+1})">&gt;</button>`);
 }
-function gotoPage(n){
-  const pages=Math.ceil(filteredQuestions.length/perPage);
-  if(n<1||n>pages||n===currentPage) return;
-  currentPage=n;render();
-}
+function goto(n){const pages=Math.ceil(filteredQuestions.length/perPage);if(n<1||n>pages) return;currentPage=n;render();}
 
-/* ----- search ----- */
+/* search */
 function searchQuestions(){
   const term=document.querySelector('.search-input').value.toLowerCase();
-  filteredQuestions=questionsData.filter(q =>
-    q.question.toLowerCase().includes(term) ||
-    (q.answer&&q.answer.toLowerCase().includes(term))
-  );
+  filteredQuestions=questionsData.filter(q=>q.question.toLowerCase().includes(term)||(q.answer&&q.answer.toLowerCase().includes(term)));
   currentPage=1;clampPage();render();
 }
 
-/* ----- boot ----- */
+/* boot */
 document.addEventListener('DOMContentLoaded',()=>{
-  showPage('home');
+  navigate('home');
   createFloatingLetters();
   window.addEventListener('scroll',()=>{
     document.getElementById('header').style.background=
@@ -337,5 +338,5 @@ document.addEventListener('DOMContentLoaded',()=>{
 });
 </script>
 </body>
-</html>m
+</html>
 
