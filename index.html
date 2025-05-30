@@ -1,304 +1,351 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Lexington Linguistics Club</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Lexington Linguistics Club</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- ===== CSS  ===== -->
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box;}
-        :root{
-            --primary:#0F172A;--primary-light:#334155;--primary-dark:#020617;
-            --accent:#10B981;--accent-light:#34D399;--accent-warm:#F59E0B;
-            --text-dark:#1E293B;--text-light:#64748B;--bg-light:#F8FAFC;
-            --bg-gradient:linear-gradient(135deg,#0F172A 0%,#334155 50%,#10B981 100%);
-            --shadow:0 4px 20px rgba(15,23,42,.1);--shadow-hover:0 8px 40px rgba(15,23,42,.2);
-        }
-        body{font-family:'Segoe UI',Tahoma,Verdana,sans-serif;line-height:1.6;color:var(--text-dark);overflow-x:hidden;}
-        .animated-bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;
-            background:linear-gradient(-45deg,#0F172A,#334155,#475569,#10B981);
-            background-size:400% 400%;animation:gradientShift 20s ease infinite;}
-        @keyframes gradientShift{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}
-        .floating-letters{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:-1;}
-        .letter{position:absolute;font-size:18px;color:rgba(16,185,129,.15);animation:float 25s linear infinite;font-weight:500;}
-        @keyframes float{0%{transform:translateY(100vh) rotate(0)}100%{transform:translateY(-100px) rotate(360deg)}}
-        header{position:fixed;top:0;width:100%;background:rgba(248,250,252,.85);backdrop-filter:blur(12px);
-            border-bottom:1px solid rgba(16,185,129,.1);box-shadow:var(--shadow);z-index:1000;transition:.3s;}
-        .header-content{max-width:1200px;margin:0 auto;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;}
-        .logo{display:flex;align-items:center;gap:1rem;}
-        .logo-icon{width:50px;height:50px;background:var(--bg-gradient);border-radius:50%;display:flex;align-items:center;justify-content:center;
-            color:#fff;font-size:24px;font-weight:bold;animation:pulse 2s infinite;}
-        @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
-        .logo h1{color:var(--primary);font-size:1.8rem;font-weight:700;background:var(--bg-gradient);
-            -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-        .logo p{color:var(--text-light);font-size:.9rem;margin-top:-5px;}
-        nav{display:flex;gap:2rem;align-items:center;}
-        nav a{color:var(--text-dark);text-decoration:none;font-weight:500;padding:.5rem 1rem;border-radius:25px;transition:.3s;position:relative;overflow:hidden;}
-        nav a::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:var(--bg-gradient);transition:left .3s;z-index:-1;}
-        nav a:hover::before{left:0}nav a:hover{color:#fff;transform:translateY(-2px);}
-        .menu-toggle{display:none;flex-direction:column;cursor:pointer;padding:5px;} .menu-toggle span{width:25px;height:3px;background:var(--primary);margin:3px 0;transition:.3s;}
-        main{margin-top:100px;min-height:calc(100vh - 100px);background:rgba(248,250,252,.8);backdrop-filter:blur(10px);}
-        .hero{min-height:80vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:2rem;position:relative;}
-        .hero-content{max-width:800px;animation:fadeInUp 1s ease}@keyframes fadeInUp{from{opacity:0;transform:translateY(50px)}to{opacity:1;transform:translateY(0)}}
-        .hero h1{font-size:4rem;margin-bottom:1rem;background:var(--bg-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
-            background-clip:text;animation:textGlow 4s ease-in-out infinite alternate;font-weight:700;letter-spacing:-.02em;}
-        @keyframes textGlow{from{filter:drop-shadow(0 0 20px rgba(16,185,129,.3))}to{filter:drop-shadow(0 0 30px rgba(15,23,42,.5))}}
-        .hero p{font-size:1.5rem;color:var(--text-light);margin-bottom:2rem;}
-        .cta-button{display:inline-block;padding:1rem 2rem;background:var(--bg-gradient);color:#fff;text-decoration:none;border-radius:50px;font-weight:600;
-            font-size:1.1rem;transition:.3s;box-shadow:var(--shadow);position:relative;overflow:hidden;}
-        .cta-button:hover{transform:translateY(-5px);box-shadow:var(--shadow-hover);}
-        .cta-button::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);transition:left .5s;}
-        .cta-button:hover::before{left:100%}
-        .content-section{max-width:1200px;margin:0 auto;padding:4rem 2rem;}
-        .section-title{font-size:2.5rem;text-align:center;margin-bottom:3rem;color:var(--primary);position:relative;}
-        .section-title::after{content:'';position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:100px;height:4px;background:var(--bg-gradient);border-radius:2px;}
-        .cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem;margin-top:3rem;}
-        .card{background:rgba(255,255,255,.95);backdrop-filter:blur(10px);padding:2.5rem;border-radius:16px;box-shadow:var(--shadow);transition:.4s;position:relative;overflow:hidden;border:1px solid rgba(16,185,129,.08);}
-        .card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent-warm));}
-        .card:hover{transform:translateY(-8px) scale(1.02);box-shadow:var(--shadow-hover);border-color:rgba(16,185,129,.2);}
-        .card-icon{width:56px;height:56px;background:linear-gradient(135deg,var(--accent),var(--accent-light));border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;
-            font-size:22px;color:#fff;box-shadow:0 4px 12px rgba(16,185,129,.25);}
-        .card h3{color:var(--primary);margin-bottom:1rem;font-size:1.3rem;} .card p{color:var(--text-light);line-height:1.6;}
-        .team-member{background:#fff;padding:2rem;border-radius:20px;box-shadow:var(--shadow);text-align:center;transition:.3s;max-width:400px;margin:0 auto;}
-        .team-member:hover{transform:translateY(-10px);box-shadow:var(--shadow-hover);}
-        .member-avatar{width:120px;height:120px;background:var(--bg-gradient);border-radius:50%;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;font-size:48px;color:#fff;font-weight:bold;}
-        .member-name{font-size:1.5rem;color:var(--primary);margin-bottom:.5rem;font-weight:600;} .member-title{color:var(--accent);font-weight:500;margin-bottom:1rem;}
-        .member-info{color:var(--text-light);line-height:1.6;}
-        .search-container{max-width:600px;margin:0 auto 3rem;position:relative;}
-        .search-input{width:100%;padding:1rem 1rem 1rem 3rem;border:2px solid rgba(102,126,234,.2);border-radius:50px;font-size:1rem;background:#fff;transition:.3s;}
-        .search-input:focus{outline:none;border-color:var(--primary);box-shadow:0 0 20px rgba(102,126,234,.2);}
-        .search-icon{position:absolute;left:1rem;top:50%;transform:translateY(-50%);color:var(--text-light);}
-        .question-card{background:#fff;padding:2rem;border-radius:20px;box-shadow:var(--shadow);margin-bottom:2rem;transition:.3s;border-left:5px solid var(--primary);}
-        .question-card:hover{transform:translateX(10px);box-shadow:var(--shadow-hover);}
-        .question-date{color:var(--accent);font-weight:600;margin-bottom:1rem;}
-        .question-text{font-size:1.1rem;color:var(--text-dark);margin-bottom:1rem;line-height:1.6;}
-        .answer-toggle{background:var(--bg-gradient);color:#fff;border:none;padding:.8rem 1.5rem;border-radius:25px;cursor:pointer;font-weight:500;transition:.3s;}
-        .answer-toggle:hover{transform:translateY(-2px);box-shadow:0 5px 15px rgba(102,126,234,.3);}
-        .answer-text{margin-top:1rem;padding:1rem;background:var(--bg-light);border-radius:10px;display:none;animation:slideDown .3s;}
-        @keyframes slideDown{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
-        .pagination{display:flex;justify-content:center;gap:1rem;margin-top:3rem;}
-        .pagination button{padding:.8rem 1.2rem;border:none;background:#fff;color:var(--primary);border-radius:10px;cursor:pointer;font-weight:500;transition:.3s;box-shadow:var(--shadow);}
-        .pagination button:hover{background:var(--primary);color:#fff;transform:translateY(-2px);}
-        .pagination button.active{background:var(--bg-gradient);color:#fff;}
-        footer{background:var(--primary-dark);color:#fff;text-align:center;padding:2rem;margin-top:4rem;}
-        @media(max-width:768px){
-          .header-content{padding:1rem;}
-          nav{display:none;position:absolute;top:100%;right:0;background:#fff;flex-direction:column;box-shadow:var(--shadow);border-radius:10px;min-width:200px;}
-          nav.active{display:flex;}
-          .menu-toggle{display:flex;}
-          .hero h1{font-size:2.5rem}.hero p{font-size:1.2rem}.content-section{padding:2rem 1rem}.cards-grid{grid-template-columns:1fr;}
-        }
-        .page-hero{min-height:40vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:2rem;}
-        .page-hero h1{font-size:3rem;background:var(--bg-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-        /* page fade */
-        .page{display:none;opacity:0;transition:opacity .5s ease;}
-        .page.active{opacity:1;}
-    </style>
+<!-- ============  CSS  (same look-and-feel, plus tiny additions)  ============ -->
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --primary:#0F172A;--primary-light:#334155;--primary-dark:#020617;
+  --accent:#10B981;--accent-light:#34D399;--accent-warm:#F59E0B;
+  --text-dark:#1E293B;--text-light:#64748B;--bg-light:#F8FAFC;
+  --bg-gradient:linear-gradient(135deg,#0F172A 0%,#334155 50%,#10B981 100%);
+  --shadow:0 4px 20px rgba(15,23,42,.1);--shadow-hover:0 8px 40px rgba(15,23,42,.2);
+}
+body{font-family:'Segoe UI',Tahoma,Verdana,sans-serif;line-height:1.6;color:var(--text-dark);overflow-x:hidden;}
+
+.animated-bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;
+  background:linear-gradient(-45deg,#0F172A,#334155,#475569,#10B981);
+  background-size:400% 400%;animation:bgShift 20s ease infinite;}
+@keyframes bgShift{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}
+
+.floating-letters{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:-1;}
+.letter{position:absolute;font-size:18px;color:rgba(16,185,129,.15);animation:float 25s linear infinite;font-weight:500;}
+@keyframes float{0%{transform:translateY(100vh) rotate(0)}100%{transform:translateY(-100px) rotate(360deg)}}
+
+header{position:fixed;top:0;width:100%;background:rgba(248,250,252,.85);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(16,185,129,.1);box-shadow:var(--shadow);z-index:1000;transition:.3s;}
+.header-content{max-width:1200px;margin:0 auto;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;}
+.logo{display:flex;align-items:center;gap:1rem;}
+.logo-icon{width:50px;height:50px;background:var(--bg-gradient);border-radius:50%;display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:24px;font-weight:bold;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+.logo h1{font-size:1.8rem;font-weight:700;background:var(--bg-gradient);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.logo p{color:var(--text-light);font-size:.9rem;margin-top:-5px;}
+
+nav{display:flex;gap:2rem;align-items:center;}
+nav a{color:var(--text-dark);text-decoration:none;font-weight:500;padding:.5rem 1rem;border-radius:25px;transition:.3s;position:relative;overflow:hidden;}
+nav a::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:var(--bg-gradient);transition:left .3s;z-index:-1;}
+nav a:hover::before{left:0}nav a:hover{color:#fff;transform:translateY(-2px);}
+
+.menu-toggle{display:none;flex-direction:column;cursor:pointer;padding:5px;}
+.menu-toggle span{width:25px;height:3px;background:var(--primary);margin:3px 0;transition:.3s;}
+
+main{margin-top:100px;min-height:calc(100vh - 100px);background:rgba(248,250,252,.8);backdrop-filter:blur(10px);}
+.hero{min-height:80vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:2rem;position:relative;}
+.hero-content{max-width:800px;animation:fadeInUp 1s ease;}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(50px)}to{opacity:1;transform:translateY(0)}}
+.hero h1{font-size:4rem;margin-bottom:1rem;background:var(--bg-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;animation:glow 4s ease-in-out infinite alternate;font-weight:700;letter-spacing:-.02em;}
+@keyframes glow{from{filter:drop-shadow(0 0 20px rgba(16,185,129,.3))}to{filter:drop-shadow(0 0 30px rgba(15,23,42,.5))}}
+.hero p{font-size:1.5rem;color:var(--text-light);margin-bottom:2rem;}
+
+.cta-button{display:inline-block;padding:1rem 2rem;background:var(--bg-gradient);color:#fff;text-decoration:none;border-radius:50px;
+  font-weight:600;font-size:1.1rem;transition:.3s;box-shadow:var(--shadow);position:relative;overflow:hidden;}
+.cta-button:hover{transform:translateY(-5px);box-shadow:var(--shadow-hover);}
+.cta-button::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);transition:left .5s;}
+.cta-button:hover::before{left:100%}
+
+.content-section{max-width:1200px;margin:0 auto;padding:4rem 2rem;}
+.section-title{font-size:2.5rem;text-align:center;margin-bottom:3rem;color:var(--primary);position:relative;}
+.section-title::after{content:'';position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:100px;height:4px;background:var(--bg-gradient);border-radius:2px;}
+
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem;margin-top:3rem;}
+.card{background:rgba(255,255,255,.95);backdrop-filter:blur(10px);padding:2.5rem;border-radius:16px;box-shadow:var(--shadow);transition:.4s;position:relative;overflow:hidden;border:1px solid rgba(16,185,129,.08);}
+.card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent-warm));}
+.card:hover{transform:translateY(-8px) scale(1.02);box-shadow:var(--shadow-hover);border-color:rgba(16,185,129,.2);}
+.card-icon{width:56px;height:56px;background:linear-gradient(135deg,var(--accent),var(--accent-light));border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;
+  font-size:22px;color:#fff;box-shadow:0 4px 12px rgba(16,185,129,.25);}
+.card h3{font-size:1.3rem;color:var(--primary);margin-bottom:1rem;}
+.card p{line-height:1.6;color:var(--text-light);}
+
+.team-member{background:#fff;padding:2rem;border-radius:20px;box-shadow:var(--shadow);text-align:center;transition:.3s;max-width:400px;margin:0 auto;}
+.team-member:hover{transform:translateY(-10px);box-shadow:var(--shadow-hover);}
+.member-avatar-img{width:120px;height:120px;border-radius:50%;object-fit:cover;object-position:center;margin-bottom:1rem;box-shadow:0 4px 12px rgba(0,0,0,.1);}
+.member-name{font-size:1.5rem;color:var(--primary);margin-bottom:.5rem;font-weight:600;}
+.member-title{color:var(--accent);font-weight:500;margin-bottom:1rem;}
+.member-info{color:var(--text-light);line-height:1.6;}
+
+.search-container{max-width:600px;margin:0 auto 3rem;position:relative;}
+.search-input{width:100%;padding:1rem 1rem 1rem 3rem;border:2px solid rgba(102,126,234,.2);border-radius:50px;font-size:1rem;background:#fff;transition:.3s;}
+.search-input:focus{outline:none;border-color:var(--primary);box-shadow:0 0 20px rgba(102,126,234,.2);}
+.search-icon{position:absolute;left:1rem;top:50%;transform:translateY(-50%);color:var(--text-light);}
+
+.question-card{background:#fff;padding:2rem;border-radius:20px;box-shadow:var(--shadow);margin-bottom:2rem;transition:.3s;border-left:5px solid var(--primary);}
+.question-card:hover{transform:translateX(10px);box-shadow:var(--shadow-hover);}
+.question-date{color:var(--accent);font-weight:600;margin-bottom:1rem;}
+.question-text{font-size:1.1rem;color:var(--text-dark);margin-bottom:1rem;line-height:1.6;}
+.answer-toggle{background:var(--bg-gradient);color:#fff;border:none;padding:.8rem 1.5rem;border-radius:25px;cursor:pointer;font-weight:500;transition:.3s;}
+.answer-toggle:hover{transform:translateY(-2px);box-shadow:0 5px 15px rgba(102,126,234,.3);}
+.answer-text{margin-top:1rem;padding:1rem;background:var(--bg-light);border-radius:10px;display:none;animation:slideDown .3s;}
+@keyframes slideDown{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
+
+.pagination{display:flex;justify-content:center;gap:1rem;margin-top:3rem;}
+.pagination button{padding:.8rem 1.2rem;border:none;background:#fff;color:var(--primary);border-radius:10px;cursor:pointer;font-weight:500;transition:.3s;box-shadow:var(--shadow);}
+.pagination button:hover:not([disabled]){background:var(--primary);color:#fff;transform:translateY(-2px);}
+.pagination button.active{background:var(--bg-gradient);color:#fff;}
+.pagination button[disabled]{opacity:.4;cursor:default;transform:none;}
+
+footer{background:var(--primary-dark);color:#fff;text-align:center;padding:2rem;margin-top:4rem;}
+
+@media(max-width:768px){
+  .header-content{padding:1rem;}
+  nav{display:none;position:absolute;top:100%;right:0;background:#fff;flex-direction:column;box-shadow:var(--shadow);border-radius:10px;min-width:200px;}
+  nav.active{display:flex;}
+  .menu-toggle{display:flex;}
+  .hero h1{font-size:2.5rem}.hero p{font-size:1.2rem}.content-section{padding:2rem 1rem}.cards-grid{grid-template-columns:1fr;}
+}
+
+.page-hero{min-height:40vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:2rem;}
+.page-hero h1{font-size:3rem;background:var(--bg-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+
+.page{display:none;opacity:0;transition:opacity .5s ease;}
+.page.active{opacity:1;}
+</style>
 </head>
 <body>
-    <div class="animated-bg"></div>
-    <div class="floating-letters" id="floatingLetters"></div>
+<div class="animated-bg"></div>
+<div class="floating-letters" id="floatingLetters"></div>
 
-    <!-- ===== Header ===== -->
-    <header id="header">
-        <div class="header-content">
-            <div class="logo">
-                <div class="logo-icon">Ł</div>
-                <div>
-                    <h1>Lexington Linguistics Club</h1>
-                    <p>Unlocking the Power of Language</p>
-                </div>
-            </div>
-            <nav id="navbar">
-                <!-- return false prevents default "#" jump -->
-                <a href="#" onclick="showPage('home');return false;">Home</a>
-                <a href="#" onclick="showPage('team');return false;">Meet Our Team</a>
-                <a href="#" onclick="showPage('questions');return false;">Question of the Day</a>
-            </nav>
-            <div class="menu-toggle" onclick="toggleMenu()">
-                <span></span><span></span><span></span>
-            </div>
+<!-- ============ HEADER ============ -->
+<header id="header">
+  <div class="header-content">
+    <div class="logo">
+      <div class="logo-icon">Ł</div>
+      <div>
+        <h1>Lexington Linguistics Club</h1>
+        <p>Unlocking the Power of Language</p>
+      </div>
+    </div>
+    <nav id="navbar">
+      <a href="#" onclick="showPage('home');return false;">Home</a>
+      <a href="#" onclick="showPage('team');return false;">Meet Our Team</a>
+      <a href="#" onclick="showPage('questions');return false;">Question of the Day</a>
+    </nav>
+    <div class="menu-toggle" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<!-- ============ MAIN ============ -->
+<main>
+  <!-- Home -->
+  <div id="homePage" class="page active">
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Welcome to Lexington Linguistics</h1>
+        <p>Explore the fascinating world of language with fellow enthusiasts</p>
+        <a href="#about" class="cta-button" onclick="scrollToAbout()">Discover More</a>
+      </div>
+    </section>
+
+    <section id="about" class="content-section">
+      <h2 class="section-title">About Us</h2>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-icon">🗣️</div>
+          <h3>Community Focused</h3>
+          <p>We are a community of language enthusiasts based in Lexington, Massachusetts. Whether you're new to linguistics or a seasoned researcher, our club offers a welcoming environment for all.</p>
         </div>
-    </header>
+      </div>
+    </section>
 
-    <!-- ===== Main ===== -->
-    <main id="mainContent">
-        <!-- Home Page -->
-        <div id="homePage" class="page active">
-            <section class="hero">
-                <div class="hero-content">
-                    <h1>Welcome to Lexington Linguistics</h1>
-                    <p>Explore the fascinating world of language with fellow enthusiasts</p>
-                    <a href="#about" class="cta-button" onclick="scrollToAbout()">Discover More</a>
-                </div>
-            </section>
+    <section class="content-section">
+      <h2 class="section-title">Our Goals</h2>
+      <div class="cards-grid">
+        <div class="card"><div class="card-icon">🌍</div><h3>Promote Linguistic Awareness</h3><p>Increase understanding and appreciation of language diversity in our community.</p></div>
+        <div class="card"><div class="card-icon">📚</div><h3>Educational Opportunities</h3><p>Provide workshops, seminars, and discussions on various linguistic topics, from semantics to phonology.</p></div>
+        <div class="card"><div class="card-icon">🤖</div><h3>Computational Linguistics</h3><p>Explore natural language processing, language modeling, and more.</p></div>
+        <div class="card"><div class="card-icon">🤝</div><h3>Community Building</h3><p>Create a network of individuals passionate about languages and linguistics.</p></div>
+      </div>
+    </section>
 
-            <section id="about" class="content-section">
-                <h2 class="section-title">About Us</h2>
-                <div class="cards-grid">
-                    <div class="card">
-                        <div class="card-icon">🗣️</div>
-                        <h3>Community Focused</h3>
-                        <p>We are a community of language enthusiasts dedicated to exploring the world of linguistics based in Lexington, Massachusetts. Whether you're new to linguistics, a seasoned vet, or just interested in something new, our club offers a welcoming environment for all.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="content-section">
-                <h2 class="section-title">Our Goals</h2>
-                <div class="cards-grid">
-                    <div class="card"><div class="card-icon">🌍</div><h3>Promote Linguistic Awareness</h3><p>Increase understanding and appreciation of language diversity in our community.</p></div>
-                    <div class="card"><div class="card-icon">📚</div><h3>Educational Opportunities</h3><p>Provide workshops, seminars, and discussions on various linguistic topics, from semantics to phonology.</p></div>
-                    <div class="card"><div class="card-icon">🤖</div><h3>Computational Linguistics</h3><p>Develop computational methods and artificial intelligence alongside linguistic studies, exploring areas such as natural language processing and language modeling.</p></div>
-                    <div class="card"><div class="card-icon">🤝</div><h3>Community Building</h3><p>Create a network of individuals passionate about languages and linguistics.</p></div>
-                </div>
-            </section>
-
-            <section class="content-section">
-                <h2 class="section-title">Get Involved</h2>
-                <div class="cards-grid">
-                    <div class="card">
-                        <div class="card-icon">✉️</div>
-                        <h3>Contact Us</h3>
-                        <p>Interested in joining or have questions? We'd love to hear from you!</p>
-                        <p><strong>Email:</strong> <a href="mailto:lexlingclub@gmail.com">lexlingclub@gmail.com</a></p>
-                    </div>
-                </div>
-            </section>
+    <section class="content-section">
+      <h2 class="section-title">Get Involved</h2>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-icon">✉️</div>
+          <h3>Contact Us</h3>
+          <p>Interested in joining or have questions? We'd love to hear from you!</p>
+          <p><strong>Email:</strong> <a href="mailto:lexlingclub@gmail.com">lexlingclub@gmail.com</a></p>
         </div>
+      </div>
+    </section>
+  </div>
 
-        <!-- Team Page -->
-        <div id="teamPage" class="page">
-            <section class="page-hero"><h1>Meet Our Team</h1></section>
-            <section class="content-section">
-                <div class="team-member">
-                    <div class="member-avatar">VS</div>
-                    <div class="member-name">Vedant Saran</div>
-                    <div class="member-title">President and Founder</div>
-                    <div class="member-info">
-                        <p>Vedant is a passionate linguist with a particular interest in computational linguistics.</p>
-                        <p><strong>School:</strong> Lexington High School, Class of 2026</p>
-                        <p><strong>Contact:</strong> <a href="mailto:vedantsaran@gmail.com">vedantsaran@gmail.com</a></p>
-                    </div>
-                </div>
-            </section>
+  <!-- Team -->
+  <div id="teamPage" class="page">
+    <section class="page-hero"><h1>Meet Our Team</h1></section>
+    <section class="content-section">
+      <div class="team-member">
+        <img src="vedant-leader.jpg" alt="Vedant Saran" class="member-avatar-img">
+        <div class="member-name">Vedant Saran</div>
+        <div class="member-title">President and Founder</div>
+        <div class="member-info">
+          <p>Vedant is a passionate linguist with a particular interest in computational linguistics.</p>
+          <p><strong>School:</strong> Lexington High School, Class of 2026</p>
+          <p><strong>Contact:</strong> <a href="mailto:vedantsaran@gmail.com">vedantsaran@gmail.com</a></p>
         </div>
+      </div>
+    </section>
+  </div>
 
-        <!-- Questions Page -->
-        <div id="questionsPage" class="page">
-            <section class="page-hero"><h1>Question of the Day</h1></section>
-            <section class="content-section">
-                <div class="search-container">
-                    <div class="search-icon">🔍</div>
-                    <input type="text" class="search-input" placeholder="Search questions..." onkeyup="searchQuestions()">
-                </div>
-                <div id="questionsContainer"></div>
-                <div class="pagination" id="pagination"></div>
-            </section>
-        </div>
-    </main>
+  <!-- Questions -->
+  <div id="questionsPage" class="page">
+    <section class="page-hero"><h1>Question of the Day</h1></section>
+    <section class="content-section">
+      <div class="search-container">
+        <div class="search-icon">🔍</div>
+        <input type="text" class="search-input" placeholder="Search questions..." onkeyup="searchQuestions()">
+      </div>
+      <div id="questionsContainer"></div>
+      <div class="pagination" id="pagination"></div>
+    </section>
+  </div>
+</main>
 
-    <footer><p>&copy; 2025 Lexington Linguistics Club</p></footer>
+<footer><p>&copy; 2025 Lexington Linguistics Club</p></footer>
 
-    <!-- ===== JavaScript ===== -->
-    <script>
-    /* ----- state ----- */
-    let questionsData = [];
-    let filteredQuestions = [];
-    let currentPage = 1;
-    const questionsPerPage = 5;
+<!-- ============  JavaScript  ============ -->
+<script>
+/* ----- state ----- */
+let questionsData = [];
+let filteredQuestions = [];
+let currentPage   = 1;
+const perPage     = 5;
 
-    /* ----- navigation ----- */
-    function showPage(pageName){
-        document.querySelectorAll('.page').forEach(p=>{p.classList.remove('active');p.style.display='none';});
-        const page=document.getElementById(pageName+'Page');
-        if(page){page.style.display='block';setTimeout(()=>page.classList.add('active'),10);}
-        if(pageName==='questions') loadQuestions();
-    }
-    function toggleMenu(){document.getElementById('navbar').classList.toggle('active');}
-    function scrollToAbout(){document.getElementById('about').scrollIntoView({behavior:'smooth'});}
+/* ----- page navigation ----- */
+function showPage(name){
+  document.querySelectorAll('.page').forEach(p=>{p.classList.remove('active');p.style.display='none';});
+  const pg=document.getElementById(name+'Page');
+  if(pg){pg.style.display='block';setTimeout(()=>pg.classList.add('active'),10);}
+  if(name==='questions') loadQuestions();
+}
+function toggleMenu(){document.getElementById('navbar').classList.toggle('active');}
+function scrollToAbout(){document.getElementById('about').scrollIntoView({behavior:'smooth'});}
 
-    /* ----- floating letters ----- */
-    function createFloatingLetters(){
-        const letters=['A','B','C','Ɑ','ɸ','θ','ʃ','ʒ','ŋ','ɹ','ɭ','ɨ','ʊ','æ','ɔ','ə'];
-        const container=document.getElementById('floatingLetters');
-        setInterval(()=>{
-            const el=document.createElement('div');
-            el.className='letter';
-            el.textContent=letters[Math.random()*letters.length|0];
-            el.style.left=Math.random()*100+'%';
-            el.style.fontSize=15+Math.random()*20+'px';
-            el.style.animationDuration=10+Math.random()*10+'s';
-            container.appendChild(el);
-            setTimeout(()=>el.remove(),20000);
-        },3000);
-    }
+/* ----- fancy letters ----- */
+function createFloatingLetters(){
+  const letters=['A','B','C','Ɑ','ɸ','θ','ʃ','ʒ','ŋ','ɹ','ɭ','ɨ','ʊ','æ','ɔ','ə'];
+  const container=document.getElementById('floatingLetters');
+  setInterval(()=>{
+    const d=document.createElement('div');
+    d.className='letter';
+    d.textContent=letters[Math.random()*letters.length|0];
+    d.style.left=Math.random()*100+'%';
+    d.style.fontSize=15+Math.random()*20+'px';
+    d.style.animationDuration=10+Math.random()*10+'s';
+    container.appendChild(d);
+    setTimeout(()=>d.remove(),20000);
+  },3000);
+}
 
-    /* ----- questions ----- */
-    async function loadQuestions(){
-        if(questionsData.length){filteredQuestions=[...questionsData];displayQuestions();return;}
-        try{
-            const res=await fetch('questions.json');
-            if(!res.ok) throw new Error(res.statusText);
-            questionsData=await res.json();
-            filteredQuestions=[...questionsData];
-            displayQuestions();
-        }catch(e){
-            console.error('Failed to load questions:',e);
-            document.getElementById('questionsContainer').innerHTML='<p>Error loading questions.</p>';
-        }
-    }
-    function displayQuestions(){
-        const box=document.getElementById('questionsContainer');
-        box.innerHTML='';
-        const start=(currentPage-1)*questionsPerPage;
-        const slice=filteredQuestions.slice(start,start+questionsPerPage);
-        slice.forEach((q,i)=>{
-            box.insertAdjacentHTML('beforeend',`
-                <div class="question-card">
-                    <div class="question-date">📅 ${q.date}</div>
-                    <div class="question-text">${q.question}</div>
-                    ${q.answer?`<button class="answer-toggle" onclick="toggleAnswer(${start+i})">Show Answer</button>
-                    <div class="answer-text" id="answer-${start+i}"><strong>Answer:</strong> ${q.answer}</div>`:''}
-                </div>`);
-        });
-        renderPagination();
-    }
-    function toggleAnswer(idx){
-        const div=document.getElementById(`answer-${idx}`);
-        const btn=div.previousElementSibling;
-        const open=div.style.display==='block';
-        div.style.display=open?'none':'block';
-        btn.textContent=open?'Show Answer':'Hide Answer';
-    }
-    function renderPagination(){
-        const pager=document.getElementById('pagination');
-        pager.innerHTML='';
-        const pages=Math.ceil(filteredQuestions.length/questionsPerPage);
-        if(pages<=1) return;
-        if(currentPage>1) pager.insertAdjacentHTML('beforeend',`<button onclick="currentPage--;displayQuestions()">Previous</button>`);
-        for(let i=1;i<=pages;i++){
-            pager.insertAdjacentHTML('beforeend',`<button class="${i===currentPage?'active':''}" onclick="currentPage=${i};displayQuestions()">${i}</button>`);
-        }
-        if(currentPage<pages) pager.insertAdjacentHTML('beforeend',`<button onclick="currentPage++;displayQuestions()">Next</button>`);
-    }
-    function searchQuestions(){
-        const term=document.querySelector('.search-input').value.toLowerCase();
-        filteredQuestions=questionsData.filter(q=>q.question.toLowerCase().includes(term)||(q.answer&&q.answer.toLowerCase().includes(term)));
-        currentPage=1;displayQuestions();
-    }
+/* ----- questions ----- */
+async function loadQuestions(){
+  // already fetched once
+  if(questionsData.length){filteredQuestions=[...questionsData];ensurePageInRange();renderQuestions();return;}
 
-    /* ----- init ----- */
-    document.addEventListener('DOMContentLoaded',()=>{
-        showPage('home');
-        createFloatingLetters();
-        window.addEventListener('scroll',()=>{
-            document.getElementById('header').style.background=
-                window.scrollY>100?'rgba(255,255,255,.98)':'rgba(255,255,255,.95)';
-        });
-    });
-    </script>
+  try{
+    const res=await fetch('questions.json');
+    if(!res.ok) throw new Error(res.statusText);
+    questionsData = await res.json();
+    filteredQuestions=[...questionsData];
+    ensurePageInRange();
+    renderQuestions();
+  }catch(e){
+    console.error('Failed to load questions:',e);
+    document.getElementById('questionsContainer').innerHTML='<p>Error loading questions.</p>';
+  }
+}
+
+function ensurePageInRange(){
+  const pages=Math.max(1,Math.ceil(filteredQuestions.length/perPage));
+  if(currentPage>pages) currentPage=pages;
+}
+
+function renderQuestions(){
+  const box=document.getElementById('questionsContainer');
+  box.innerHTML='';
+  const start=(currentPage-1)*perPage;
+  const slice=filteredQuestions.slice(start,start+perPage);
+
+  slice.forEach((q,i)=>{
+    box.insertAdjacentHTML('beforeend',`
+      <div class="question-card">
+        <div class="question-date">📅 ${q.date}</div>
+        <div class="question-text">${q.question}</div>
+        ${q.answer?`<button class="answer-toggle" onclick="toggleAnswer(${start+i})">Show Answer</button>
+          <div class="answer-text" id="answer-${start+i}"><strong>Answer:</strong> ${q.answer}</div>`:''}
+      </div>`);
+  });
+  renderPagination();
+}
+
+function toggleAnswer(i){
+  const div=document.getElementById('answer-'+i);
+  const btn=div.previousElementSibling;
+  const open=div.style.display==='block';
+  div.style.display=open?'none':'block';
+  btn.textContent=open?'Show Answer':'Hide Answer';
+}
+
+/* ----- pagination ----- */
+function renderPagination(){
+  const pager=document.getElementById('pagination');
+  pager.innerHTML='';
+  const pages=Math.ceil(filteredQuestions.length/perPage);
+  if(pages<=1) return;
+
+  pager.insertAdjacentHTML('beforeend',
+    `<button ${currentPage===1?'disabled':''} onclick="goPrev()">Previous</button>`);
+
+  for(let i=1;i<=pages;i++){
+    pager.insertAdjacentHTML('beforeend',
+      `<button class="${i===currentPage?'active':''}" onclick="gotoPage(${i})">${i}</button>`);
+  }
+
+  pager.insertAdjacentHTML('beforeend',
+    `<button ${currentPage===pages?'disabled':''} onclick="goNext(${pages})">Next</button>`);
+}
+
+function gotoPage(n){currentPage=n;renderQuestions();}
+function goPrev(){if(currentPage>1){currentPage--;renderQuestions();}}
+function goNext(max){if(currentPage<max){currentPage++;renderQuestions();}}
+
+/* ----- search ----- */
+function searchQuestions(){
+  const term=document.querySelector('.search-input').value.toLowerCase();
+  filteredQuestions = questionsData.filter(q =>
+    q.question.toLowerCase().includes(term) ||
+    (q.answer && q.answer.toLowerCase().includes(term))
+  );
+  currentPage=1;
+  renderQuestions();
+}
+
+/* ----- boot ----- */
+document.addEventListener('DOMContentLoaded',()=>{
+  showPage('home');
+  createFloatingLetters();
+  window.addEventListener('scroll',()=>{
+    document.getElementById('header').style.background =
+      window.scrollY>100?'rgba(255,255,255,.98)':'rgba(255,255,255,.95)';
+  });
+});
+</script>
 </body>
 </html>
 
